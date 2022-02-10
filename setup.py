@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 __copyright__ = "Copyright (c) 2018 Cisco and/or its affiliates."
 __license__ = "MIT"
 
-PACKAGE_NAME = 'bcsoiapis'
+PACKAGE_NAME = 'bcsoiapi'
 
 PACKAGE_KEYWORDS = [
     'cisco',
@@ -49,7 +49,7 @@ setup(
     author_email='kvancoil@cisco.com',
     version='0.1.0',
     url='https://github.com/CiscoDevNet/bcs-apis',
-    description='Example implementation to consume the Business Critical Services 3.0 Operations Insights APIs',
+    description='Example implementation to consume the Business Critical Services Operational Insights API',
     long_description=long_description,
     packages=find_packages('.'),
     include_package_data=True,
