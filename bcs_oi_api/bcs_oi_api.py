@@ -102,7 +102,7 @@ class BCSOIAPI:
 
         headers = {'Authorization': f'Bearer {self.jwt}'}
         url = f'https://{self.server}/bcs/staging/v2/{model.url_path()}'
-        url = f'https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}'
+        # url = f'https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}'
         results = []
         for item in _get_all_items(url=url, headers=headers, url_params=url_params):
             results.append(model(**item))
