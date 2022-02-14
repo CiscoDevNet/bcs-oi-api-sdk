@@ -137,9 +137,9 @@ class SoftwareEndOfLifeBulletin(BCSOIAPIBaseModel):
     bulletin_url: str
     end_of_life_announcement_date: date
     end_of_sale_date: Optional[date]
-    end_of_software_maintenance_release_date: Optional[date]
+    end_of_software_maintenance_releases_date: Optional[date]
     end_of_vulnerability_security_support_date: Optional[date]
-    last_day_of_support: Optional[date]
+    last_day_of_support_date: Optional[date]
     software_maintenance_version: str
     software_major_version: str
     software_train: str
