@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List
 
-from .models import BCSOIAPIBaseModel
+from ..models import BCSOIAPIBaseModel
 
 __all__ = ["LastResetDetails", "ResetCount", "ResetHistory"]
 

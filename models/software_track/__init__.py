@@ -1,1 +1,6 @@
-from .models import *
+from .models import (
+    SoftwareTrackMember,
+    SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
+    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
+    SoftwareTrackSummary,
+)

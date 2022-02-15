@@ -1,7 +1,7 @@
 from datetime import date
 from typing import List, Optional
 
-from models import BCSOIAPIBaseModel
+from ..models import BCSOIAPIBaseModel
 
 __all__ = ["Contract"]
 
@@ -19,7 +19,7 @@ class OrderableProductId(BCSOIAPIBaseModel):
 
 
 class Contract(BCSOIAPIBaseModel):
-    baseProductIdList: List[BaseProduct]
+    base_product_id_list: List[BaseProduct]
     contract_site_address: str
     contract_site_city: str
     contract_site_country: str

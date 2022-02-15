@@ -1,4 +1,4 @@
-from models import BCSOIAPIBaseModel
+from ..models import BCSOIAPIBaseModel
 
 __all__ = ["DeviceGroup", "DeviceGroupMember"]
 

@@ -5,7 +5,7 @@ from typing import Dict, Generator, Optional
 import jwt
 import requests
 
-from models import *
+from models import BCSOIAPIBaseModel
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)

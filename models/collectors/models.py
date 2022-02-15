@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from models import BCSOIAPIBaseModel
+from ..models import BCSOIAPIBaseModel
 
 __all__ = ["Collector"]
 

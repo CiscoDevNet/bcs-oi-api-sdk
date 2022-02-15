@@ -1,7 +1,7 @@
 from datetime import date
 from typing import Optional
 
-from models import BCSOIAPIBaseModel
+from ..models import BCSOIAPIBaseModel
 
 __all__ = [
     "SoftwareTrackSummary",

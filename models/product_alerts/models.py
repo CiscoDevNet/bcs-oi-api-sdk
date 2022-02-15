@@ -2,7 +2,7 @@ from datetime import date, datetime
 from enum import Enum
 from typing import Optional
 
-from models import BCSOIAPIBaseModel
+from ..models import BCSOIAPIBaseModel
 
 __all__ = [
     "SecurityAdvisoryOutcome",

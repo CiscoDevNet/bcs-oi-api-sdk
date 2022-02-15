@@ -1,1 +1,6 @@
-from .models import *
+from .models import (
+    ConfigBestPracticeDetail,
+    ConfigBestPracticeRule,
+    ConfigBestPracticeRuleReference,
+    ConfigBestPracticeSummary,
+)
