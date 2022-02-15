@@ -1,12 +1,11 @@
-from typing import Optional, List
 from datetime import date, datetime
+from typing import List, Optional
+
 from pydantic import BaseModel
 
 from bcs_oi_api.models.models import BCSOIAPIBaseModel
 
-__all__ = [
-    'Syslog'
-]
+__all__ = ["Syslog"]
 
 
 class SyslogDevice(BCSOIAPIBaseModel):
@@ -28,4 +27,4 @@ class Syslog(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'syslog/daily'
+        return "syslog/daily"

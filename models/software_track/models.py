@@ -1,13 +1,13 @@
-from datetime import datetime, date
-from enum import Enum
+from datetime import date
 from typing import Optional
 
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
-
+from models import BCSOIAPIBaseModel
 
 __all__ = [
-    'SoftwareTrackSummary', 'SoftwareTrackMember', 'SoftwareTrackSoftwareMaintenanceUpgradeCompliance',
-    'SoftwareTrackSoftwareMaintenanceUpgradeRecommendation'
+    "SoftwareTrackSummary",
+    "SoftwareTrackMember",
+    "SoftwareTrackSoftwareMaintenanceUpgradeCompliance",
+    "SoftwareTrackSoftwareMaintenanceUpgradeRecommendation",
 ]
 
 
@@ -44,7 +44,7 @@ class SoftwareTrackSummary(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'softwareTrack/summary'
+        return "softwareTrack/summary"
 
 
 class SoftwareTrackMember(BCSOIAPIBaseModel):
@@ -63,8 +63,8 @@ class SoftwareTrackMember(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'softwareTrack/members'
-    
+        return "softwareTrack/members"
+
 
 class SoftwareTrackSoftwareMaintenanceUpgradeCompliance(BCSOIAPIBaseModel):
     device_id: int
@@ -78,7 +78,7 @@ class SoftwareTrackSoftwareMaintenanceUpgradeCompliance(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'softwareTrack/softwareMaintenanceUpgradeCompliance'
+        return "softwareTrack/softwareMaintenanceUpgradeCompliance"
 
 
 class SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(BCSOIAPIBaseModel):
@@ -90,4 +90,4 @@ class SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'softwareTrack/softwareMaintenanceUpgradeRecommendations'
+        return "softwareTrack/softwareMaintenanceUpgradeRecommendations"

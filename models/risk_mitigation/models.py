@@ -1,9 +1,6 @@
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
+from models import BCSOIAPIBaseModel
 
-
-__all__ = [
-    'RiskMitigationDetails', 'RiskMitigationSummary'
-]
+__all__ = ["RiskMitigationDetails", "RiskMitigationSummary"]
 
 
 class RiskMitigationDetails(BCSOIAPIBaseModel):
@@ -19,8 +16,8 @@ class RiskMitigationDetails(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'riskMitigation/details'
-    
+        return "riskMitigation/details"
+
 
 class RiskMitigationSummary(BCSOIAPIBaseModel):
     high_risk_device_count: int
@@ -30,4 +27,4 @@ class RiskMitigationSummary(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'riskMitigation/summary'
+        return "riskMitigation/summary"

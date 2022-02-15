@@ -1,9 +1,6 @@
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
+from models import BCSOIAPIBaseModel
 
-
-__all__ = [
-    'DeviceGroup', 'DeviceGroupMember'
-]
+__all__ = ["DeviceGroup", "DeviceGroupMember"]
 
 
 class DeviceGroupMember(BCSOIAPIBaseModel):
@@ -13,8 +10,8 @@ class DeviceGroupMember(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'deviceGroups/groupMembers'
-    
+        return "deviceGroups/groupMembers"
+
 
 class DeviceGroup(BCSOIAPIBaseModel):
     group_description: str
@@ -24,4 +21,4 @@ class DeviceGroup(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'deviceGroups/groups'
+        return "deviceGroups/groups"

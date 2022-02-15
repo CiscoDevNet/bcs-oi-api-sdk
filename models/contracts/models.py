@@ -1,17 +1,14 @@
 from datetime import date
 from typing import List, Optional
 
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
+from models import BCSOIAPIBaseModel
 
-
-__all__ = [
-    'Contract'
-]
+__all__ = ["Contract"]
 
 
 class BaseProduct(BCSOIAPIBaseModel):
     base_product_id: str
-    
+
 
 class OrderableProductId(BCSOIAPIBaseModel):
     item_description: str
@@ -41,4 +38,4 @@ class Contract(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'contract/serials'
+        return "contract/serials"

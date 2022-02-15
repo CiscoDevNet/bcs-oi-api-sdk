@@ -1,20 +1,26 @@
-from datetime import datetime, date
+from datetime import date, datetime
 from enum import Enum
 from typing import Optional
 
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
-
+from models import BCSOIAPIBaseModel
 
 __all__ = [
-    'SecurityAdvisoryOutcome', 'FieldNotice', 'FieldNoticeBulletin', 'SecurityAdvisory', 'SecurityAdvisoryBulletin',
-    'HardwareEndOfLife', 'HardwareEndOfLifeBulletin', 'SoftwareEndOfLife', 'SoftwareEndOfLifeBulletin'
+    "SecurityAdvisoryOutcome",
+    "FieldNotice",
+    "FieldNoticeBulletin",
+    "SecurityAdvisory",
+    "SecurityAdvisoryBulletin",
+    "HardwareEndOfLife",
+    "HardwareEndOfLifeBulletin",
+    "SoftwareEndOfLife",
+    "SoftwareEndOfLifeBulletin",
 ]
 
 
 class SecurityAdvisoryOutcome(Enum):
-    VULNERABLE = 'Vulnerable'
-    NOT_VULNERABLE = 'Not Vulnerable'
-    POTENTIALLY_VULNERABLE = 'Potentially Vulnerable'
+    VULNERABLE = "Vulnerable"
+    NOT_VULNERABLE = "Not Vulnerable"
+    POTENTIALLY_VULNERABLE = "Potentially Vulnerable"
 
 
 class FieldNoticeBulletin(BCSOIAPIBaseModel):
@@ -29,7 +35,7 @@ class FieldNoticeBulletin(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'productAlerts/fieldNoticeBulletins'
+        return "productAlerts/fieldNoticeBulletins"
 
 
 class FieldNotice(BCSOIAPIBaseModel):
@@ -41,7 +47,7 @@ class FieldNotice(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'productAlerts/fieldNotices'
+        return "productAlerts/fieldNotices"
 
 
 class SecurityAdvisory(BCSOIAPIBaseModel):
@@ -52,7 +58,7 @@ class SecurityAdvisory(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'productAlerts/securityAdvisories'
+        return "productAlerts/securityAdvisories"
 
 
 class SecurityAdvisoryBulletin(BCSOIAPIBaseModel):
@@ -73,7 +79,7 @@ class SecurityAdvisoryBulletin(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'productAlerts/securityAdvisoryBulletins'
+        return "productAlerts/securityAdvisoryBulletins"
 
 
 class HardwareEndOfLife(BCSOIAPIBaseModel):
@@ -90,7 +96,7 @@ class HardwareEndOfLife(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'productAlerts/hardwareEndOfLife'
+        return "productAlerts/hardwareEndOfLife"
 
 
 class HardwareEndOfLifeBulletin(BCSOIAPIBaseModel):
@@ -111,7 +117,7 @@ class HardwareEndOfLifeBulletin(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'productAlerts/hardwareEndOfLifeBulletins'
+        return "productAlerts/hardwareEndOfLifeBulletins"
 
 
 class SoftwareEndOfLife(BCSOIAPIBaseModel):
@@ -127,7 +133,7 @@ class SoftwareEndOfLife(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'productAlerts/softwareEndOfLife'
+        return "productAlerts/softwareEndOfLife"
 
 
 class SoftwareEndOfLifeBulletin(BCSOIAPIBaseModel):
@@ -147,4 +153,4 @@ class SoftwareEndOfLifeBulletin(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'productAlerts/softwareEndOfLifeBulletins'
+        return "productAlerts/softwareEndOfLifeBulletins"

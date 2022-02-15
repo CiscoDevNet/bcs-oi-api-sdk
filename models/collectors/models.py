@@ -1,11 +1,8 @@
 from datetime import datetime
-from typing import List, Optional
 
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
+from models import BCSOIAPIBaseModel
 
-__all__ = [
-    'Collector'
-]
+__all__ = ["Collector"]
 
 
 class Collector(BCSOIAPIBaseModel):
@@ -18,4 +15,4 @@ class Collector(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'collectors'
+        return "collectors"

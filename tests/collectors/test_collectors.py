@@ -6,10 +6,10 @@ collector_1 = {
     "collectorStatus": "Cisco Testing",
     "collectorVersion": "2.8.1.8",
     "expectedUploadInterval": 8,
-    "lastUploadTimestamp": "2022-02-03T21:10:58"
+    "lastUploadTimestamp": "2022-02-03T21:10:58",
 }
 
 
 def test_collector_model():
     collector = Collector(**collector_1)
-    assert collector.appliance_id == collector_1['applianceId']
+    assert collector.appliance_id == collector_1["applianceId"]

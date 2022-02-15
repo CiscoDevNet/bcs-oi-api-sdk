@@ -12,4 +12,4 @@ class BCSOIAPIBaseModel(BaseModel):
 
     @classmethod
     def url_path(cls):
-        return ''
+        return ""

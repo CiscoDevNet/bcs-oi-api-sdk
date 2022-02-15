@@ -1,10 +1,13 @@
-from typing import Optional
 from datetime import datetime
+from typing import Optional
 
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
+from models import BCSOIAPIBaseModel
 
 __all__ = [
-    'ConfigBestPracticeRule', 'ConfigBestPracticeRuleReference', 'ConfigBestPracticeDetail', 'ConfigBestPracticeSummary'
+    "ConfigBestPracticeRule",
+    "ConfigBestPracticeRuleReference",
+    "ConfigBestPracticeDetail",
+    "ConfigBestPracticeSummary",
 ]
 
 
@@ -25,7 +28,7 @@ class ConfigBestPracticeRule(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'configBestPractices/rules'
+        return "configBestPractices/rules"
 
 
 class ConfigBestPracticeRuleReference(BCSOIAPIBaseModel):
@@ -35,7 +38,7 @@ class ConfigBestPracticeRuleReference(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'configBestPractices/rulesReferences'
+        return "configBestPractices/rulesReferences"
 
 
 class ConfigBestPracticeSummary(BCSOIAPIBaseModel):
@@ -50,9 +53,9 @@ class ConfigBestPracticeSummary(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'configBestPractices/summary'
-    
-    
+        return "configBestPractices/summary"
+
+
 class ConfigBestPracticeDetail(BCSOIAPIBaseModel):
     best_practice_nugget_id: int
     best_practice_rule_id: int
@@ -61,4 +64,4 @@ class ConfigBestPracticeDetail(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'configBestPractices/details'
+        return "configBestPractices/details"

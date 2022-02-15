@@ -1,13 +1,9 @@
-from datetime import datetime, date
-from enum import Enum
-from typing import List, Optional
+from datetime import datetime
+from typing import List
 
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
+from .models import BCSOIAPIBaseModel
 
-
-__all__ = [
-    'LastResetDetails', 'ResetCount', 'ResetHistory'
-]
+__all__ = ["LastResetDetails", "ResetCount", "ResetHistory"]
 
 
 class LastResetDetails(BCSOIAPIBaseModel):
@@ -25,7 +21,7 @@ class LastResetDetails(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'deviceReset/lastResetDetails'
+        return "deviceReset/lastResetDetails"
 
 
 class ResetCount(BCSOIAPIBaseModel):
@@ -34,9 +30,9 @@ class ResetCount(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'deviceReset/resetCount'
-  
-  
+        return "deviceReset/resetCount"
+
+
 class ResetDetails(BCSOIAPIBaseModel):
     reset_timestamp: datetime
     reset_reason: str
@@ -55,4 +51,4 @@ class ResetHistory(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'deviceReset/resetHistory'
+        return "deviceReset/resetHistory"

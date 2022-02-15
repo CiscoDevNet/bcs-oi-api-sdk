@@ -1,9 +1,9 @@
-from typing import Optional
 from datetime import datetime
+from typing import Optional
 
-from bcs_oi_api.models.models import BCSOIAPIBaseModel
+from models import BCSOIAPIBaseModel
 
-__all__ = ['Asset', 'Device']
+__all__ = ["Asset", "Device"]
 
 
 class Device(BCSOIAPIBaseModel):
@@ -41,7 +41,7 @@ class Device(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'inventory/devices'
+        return "inventory/devices"
 
 
 class Asset(BCSOIAPIBaseModel):
@@ -68,4 +68,4 @@ class Asset(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls):
-        return 'inventory/assets'
+        return "inventory/assets"
