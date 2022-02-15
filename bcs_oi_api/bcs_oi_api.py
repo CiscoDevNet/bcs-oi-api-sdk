@@ -35,10 +35,13 @@ def _get_all_items(url: str, headers: Dict[str, str], url_params: dict = None) -
             raise err
         else:
             res = resp.json()
-            offset = int(resp.headers['offset']) + int(resp.headers['max'])
-            total = int(resp.headers['total'])
-            for item in res['items']:
-                yield item
+            offset = int(resp.headers.get('offset', 1)) + int(resp.headers.get('max', 0))
+            total = int(resp.headers.get('total', 0))
+            if 'items' in res:
+                for item in res['items']:
+                    yield item
+            else:
+                yield res
 
 
 class BCSOIAPI:

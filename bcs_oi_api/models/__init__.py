@@ -3,4 +3,9 @@ from .product_alerts import *
 from .config_best_practice import *
 from .syslog import *
 from .software_track import *
+from .device_reset import *
+from .risk_mitigation import *
+from .device_groups import *
+from .contracts import *
+from .collectors import *
 from .models import BCSOIAPIBaseModel
