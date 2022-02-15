@@ -1,0 +1,46 @@
+# based on: https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml
+
+variables:
+  AWS_DEFAULT_REGION: us-east-1
+
+stages:
+  - python
+
+python_typecheck:
+    stage: python
+    image: python:3.9
+    script:
+        - python3 -m pip install -r requirements.txt
+        - python3 -m pip install flake8 mypy
+        - python3 -m pip install -e .
+        - mypy .
+        - flake8 .
+    only:
+        changes:
+            - "**/*.py"
+
+python_code_formatting:
+    stage: python
+    image: python:3.9
+    script:
+        - python3 -m pip install black isort
+        - python3 -m black --check .
+        - isort -c .
+    only:
+        changes:
+            - "**/*.py"
+            - "**/*.pyi"
+
+python_tests:
+    stage: python
+    image: python:3.9
+    script:
+        - python3 -m pip install -r requirements.txt
+        - python3 -m pip install .
+        - cd tests
+        - python3 -m pip install -U pytest coverage
+        - coverage run --source=. -m pytest -vv --capture=no
+        - coverage report
+    only:
+        changes:
+            - "**/*.py"
