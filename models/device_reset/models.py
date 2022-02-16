@@ -32,6 +32,10 @@ class ResetCount(BCSOIAPIBaseModel):
     def url_path(cls):
         return "deviceReset/resetCount"
 
+    @classmethod
+    def response_items(cls) -> bool:
+        return False
+
 
 class ResetDetails(BCSOIAPIBaseModel):
     reset_timestamp: datetime

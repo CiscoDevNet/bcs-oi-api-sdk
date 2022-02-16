@@ -12,6 +12,7 @@ PACKAGE_KEYWORDS = [
     "cisco",
     "python",
     "bcs",
+    "operational insights",
     "business critical services",
     "oi api",
 ]
@@ -41,7 +42,7 @@ INSTALLATION_REQUIREMENTS = [
 project_root = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the project's README.md file
-with open(os.path.join(project_root, "README.rst"), encoding="utf-8") as f:
+with open(os.path.join(project_root, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(

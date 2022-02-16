@@ -1,22 +1,71 @@
 import logging
 import time
-from typing import Dict, Generator, Optional
+from collections import defaultdict
+from contextlib import closing
+from typing import Dict, Generator, List, Optional, Union
 
+import jsonlines
 import jwt
 import requests
 
-from models import BCSOIAPIBaseModel
+from models import *
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 
+BULK_TYPE_MODEL_MAPPING = {
+    "sw_eox_bulletin": SoftwareEndOfLifeBulletin,
+    "history_reset": ResetHistory,
+    "psirt_bulletin": SecurityAdvisoryBulletin,
+    "track_summary": SoftwareTrackSummary,
+    "configuration_best_practice_rules": ConfigBestPracticeRule,
+    "lastest_reset": LastResetDetails,
+    "configuration_best_practice_summary": ConfigBestPracticeSummary,
+    "risk_mitigation_details": RiskMitigationDetails,
+    "reset_count": ResetCount,
+    "fn_bulletin": FieldNoticeBulletin,
+    "groups": DeviceGroup,
+    "track_members": SoftwareTrackMember,
+    "hw_eox_bulletin": HardwareEndOfLifeBulletin,
+    "device": Device,
+    "configuration_best_practice_rules_reference": ConfigBestPracticeRuleReference,
+    "group_members": DeviceGroupMember,
+    "track_smupie_recommendation": SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
+    "risk_mitigation_summary": RiskMitigationSummary,
+}
+
+
+def _get_response(
+    url: str, headers: dict, url_params: Optional[dict] = None
+) -> requests.models.Response:
+    """
+    Helper function that fetches the response for the given url
+    :param url: str representing the url
+    :param headers: dict containing the headers to send in the request
+    :param url_params: dict containing the url parameters to send in the request
+    :return: Response object returned by sending GET request to the specified url
+    """
+    url_params = url_params if url_params is not None else {}
+    try:
+        response = requests.session().get(url=url, headers=headers, params=url_params)
+        response.raise_for_status()
+    except (
+        requests.exceptions.HTTPError,
+        requests.exceptions.ConnectionError,
+    ) as err:
+        logger.error(f"Failed to get items: {err}")
+        raise err
+    else:
+        return response
+
+
 def _get_all_items(
     url: str, headers: Dict[str, str], url_params: Optional[dict] = None
 ) -> Generator[dict, None, None]:
     """
-    Function that will fetch all items
+    Helper function that will fetch all items
     :param url: str representing the url
     :param headers: dictionary containing the headers to be added to the request
     :param url_params: dictionary containing the url parameters
@@ -27,26 +76,14 @@ def _get_all_items(
     while offset is None or offset <= total:
         if offset is not None:
             params["offset"] = offset
-        try:
-            resp = requests.session().get(url=url, headers=headers, params=params)
-            resp.raise_for_status()
-        except (
-            requests.exceptions.HTTPError,
-            requests.exceptions.ConnectionError,
-        ) as err:
-            logger.error(f"Failed to get items: {err}")
-            raise err
-        else:
-            res = resp.json()
-            offset = int(resp.headers.get("offset", 1)) + int(
-                resp.headers.get("max", 0)
-            )
-            total = int(resp.headers.get("total", 0))
-            if "items" in res:
-                for item in res["items"]:
-                    yield item
-            else:
-                yield res
+        response = _get_response(url=url, headers=headers, url_params=params)
+        res = response.json()
+        offset = int(response.headers.get("offset", 1)) + int(
+            response.headers.get("max", 0)
+        )
+        total = int(response.headers.get("total", 0))
+        for item in res["items"]:
+            yield item
 
 
 class BCSOIAPI:
@@ -112,16 +149,58 @@ class BCSOIAPI:
         if jwt_validity is None or jwt_validity < 60:
             self._obtain_jwt()
 
-    def get_items(
-        self, model: BCSOIAPIBaseModel, url_params: Optional[dict] = None
-    ) -> list:
+    def get_output(
+        self,
+        model: BCSOIAPIBaseModel,
+        url_params: Optional[dict] = None,
+        headers: Optional[dict] = None,
+    ) -> Union[List[BCSOIAPIBaseModel], BCSOIAPIBaseModel]:
+        """
+        Function that fetches the output of the BCS OI API for the given model
+        :param model:
+        :param url_params: dict containing the url parameters to be added to the request
+        :param headers: dict containing the headers to be added to the request
+        :return: A list of objects of the model given as input for API endpoints that return a list of items,
+        an object of the model given as input for API endpoints that return a single response.
+        """
         # check and renew JWT if needed
         self._check_and_renew_jwt()
 
-        headers = {"Authorization": f"Bearer {self.jwt}"}
+        # Add Authorization to the headers
+        headers = headers if headers is not None else {}
+        headers["Authorization"] = f"Bearer {self.jwt}"
+
+        # Constructing the url
         url = f"https://{self.server}/bcs/staging/v2/{model.url_path()}"
         # url = f'https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}'
-        results = []
-        for item in _get_all_items(url=url, headers=headers, url_params=url_params):
-            results.append(model(**item))
-        return results
+
+        if model.response_items():
+            results = []
+            for item in _get_all_items(url=url, headers=headers, url_params=url_params):
+                results.append(model(**item))
+            return results
+        else:
+            response = _get_response(url=url, headers=headers, url_params=url_params)
+            return model(**response.json())
+
+    def get_bulk_alerts(self) -> Dict[str, List[BCSOIAPIBaseModel]]:
+        # check and renew JWT if needed
+        self._check_and_renew_jwt()
+
+        url = f"https://{self.server}/bcs/staging/v2/bulk/alerts"
+        # url = f'https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}'
+
+        res = defaultdict(list)
+        # response = _get_response(url=url, headers={"Authorization": f"Bearer {self.jwt}"})
+        # for doc in jsonlines.Reader(response.iter_lines()):
+        #     res[doc["type"]].append(BULK_TYPE_MODEL_MAPPING[doc["type"]](**doc))
+
+        with closing(
+            requests.get(
+                url, headers={"Authorization": f"Bearer {self.jwt}"}, stream=True
+            )
+        ) as r:
+            reader = jsonlines.Reader(r.iter_lines())
+            for doc in reader:
+                res[doc["type"]].append(BULK_TYPE_MODEL_MAPPING[doc["type"]](**doc))
+        return res

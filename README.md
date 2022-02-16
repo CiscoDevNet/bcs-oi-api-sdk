@@ -20,19 +20,20 @@ bcs_oi_api = BCSOIAPI(
 )
 
 # Getting all discovered devices
-devices = bcs_oi_api.get_items(model=Device)
+devices = bcs_oi_api.get_output(model=Device)
 
 # Building a dictionary with as key the device_id and the value the Device object for lookups
 devices_dict = {device.device_id: device for device in devices}
 
 # Getting all the Security Advisories
-security_advisories = bcs_oi_api.get_items(model=SecurityAdvisory)
+security_advisories = bcs_oi_api.get_output(model=SecurityAdvisory)
 
 # Getting all the Security Advisory Bulletins
-security_advisory_bulletins = bcs_oi_api.get_items(model=SecurityAdvisoryBulletin)
+security_advisory_bulletins = bcs_oi_api.get_output(model=SecurityAdvisoryBulletin)
 
 # Building a dictionary with as key the id of the bulletin and as value the bulletin itself for lookups
-security_advisory_bulletins_dict = {bulletin.security_advisory_cold_id: bulletin for bulletin in security_advisory_bulletins}
+security_advisory_bulletins_dict = {bulletin.security_advisory_cold_id: bulletin for bulletin in
+                                    security_advisory_bulletins}
 
 # Listing devices which are vulnerable
 for advisory in security_advisories:
@@ -41,7 +42,7 @@ for advisory in security_advisories:
             f"Device \"{devices_dict[advisory.device_id].device_name}\" is vulnerable to "
             f"\"{security_advisory_bulletins_dict[advisory.security_advisory_cold_id].bulletin_title}\""
         )
-        
+
 ```
 
 ## Installation

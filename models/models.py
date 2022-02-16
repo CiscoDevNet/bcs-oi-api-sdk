@@ -13,3 +13,7 @@ class BCSOIAPIBaseModel(BaseModel):
     @classmethod
     def url_path(cls):
         return ""
+
+    @classmethod
+    def response_items(cls) -> bool:
+        return True

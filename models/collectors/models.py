@@ -14,5 +14,5 @@ class Collector(BCSOIAPIBaseModel):
     last_upload_timestamp: datetime
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "collectors"
