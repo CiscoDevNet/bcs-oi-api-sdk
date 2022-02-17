@@ -1,11 +1,7 @@
 from datetime import datetime
 
-from models import (
-    ConfigBestPracticeDetail,
-    ConfigBestPracticeRule,
-    ConfigBestPracticeRuleReference,
-    ConfigBestPracticeSummary,
-)
+from models import (ConfigBestPracticeDetail, ConfigBestPracticeRule,
+                    ConfigBestPracticeRuleReference, ConfigBestPracticeSummary)
 
 config_best_practice_rule_1 = {
     "bestPracticeCaveat": "",

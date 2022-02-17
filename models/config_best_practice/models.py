@@ -60,7 +60,7 @@ class ConfigBestPracticeDetail(BCSOIAPIBaseModel):
     best_practice_nugget_id: int
     best_practice_rule_id: int
     config_source: str
-    device_id: int
+    device_id: Optional[int]  # Optional for bulk
 
     @classmethod
     def url_path(cls):

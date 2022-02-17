@@ -1,5 +1,5 @@
 from datetime import date
-from typing import List, Optional
+from typing import List, Optional, Union
 
 from ..models import BCSOIAPIBaseModel
 
@@ -19,22 +19,22 @@ class OrderableProductId(BCSOIAPIBaseModel):
 
 
 class Contract(BCSOIAPIBaseModel):
-    base_product_id_list: List[BaseProduct]
+    base_product_id_list: Optional[List[BaseProduct]]  # Optional for bulk
     contract_site_address: str
     contract_site_city: str
     contract_site_country: str
     contract_site_customer_name: str
     contract_site_state_province: str
-    covered_product_line_end_date: Optional[date]
+    covered_product_line_end_date: Union[str, Optional[date]]  # Union for bulk
     is_covered: bool
-    orderable_product_id_list: List[OrderableProductId]
+    orderable_product_id_list: Optional[List[OrderableProductId]]  # Optional for bulk
     parent_serial_number: str
     serial_number: str
     service_contract_number: str
     service_line_description: str
-    warranty_end_date: Optional[date]
+    warranty_end_date: Union[str, Optional[date]]  # Union for bulk
     warranty_type: str
-    warranty_type_description: str
+    warranty_type_description: Optional[str]  # Optional for bulk
 
     @classmethod
     def url_path(cls):

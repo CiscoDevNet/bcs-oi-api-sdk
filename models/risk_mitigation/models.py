@@ -1,3 +1,4 @@
+from typing import Optional
 from ..models import BCSOIAPIBaseModel
 
 __all__ = ["RiskMitigationDetails", "RiskMitigationSummary"]
@@ -8,7 +9,7 @@ class RiskMitigationDetails(BCSOIAPIBaseModel):
     device_ip: str
     device_name: str
     product_family: str
-    product_id: str
+    product_id: Optional[str]  # Optional for bulk
     risk_category: str
     risk_score: float
     software_type: str

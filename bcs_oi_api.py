@@ -8,7 +8,16 @@ import jsonlines
 import jwt
 import requests
 
-from models import *
+from models import (BCSOIAPIBaseModel, ConfigBestPracticeRule,
+                    ConfigBestPracticeRuleReference, ConfigBestPracticeSummary,
+                    DeviceBulk, DeviceGroup, DeviceGroupMember,
+                    FieldNoticeBulletin, HardwareEndOfLifeBulletin,
+                    LastResetDetails, ResetCount, ResetHistory,
+                    RiskMitigationDetails, RiskMitigationSummary,
+                    SecurityAdvisoryBulletin, SoftwareEndOfLifeBulletin,
+                    SoftwareTrackMember,
+                    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
+                    SoftwareTrackSummary)
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -16,24 +25,24 @@ logger.setLevel(logging.DEBUG)
 
 
 BULK_TYPE_MODEL_MAPPING = {
-    "sw_eox_bulletin": SoftwareEndOfLifeBulletin,
-    "history_reset": ResetHistory,
-    "psirt_bulletin": SecurityAdvisoryBulletin,
-    "track_summary": SoftwareTrackSummary,
     "configuration_best_practice_rules": ConfigBestPracticeRule,
-    "lastest_reset": LastResetDetails,
+    "configuration_best_practice_rules_reference": ConfigBestPracticeRuleReference,
     "configuration_best_practice_summary": ConfigBestPracticeSummary,
-    "risk_mitigation_details": RiskMitigationDetails,
-    "reset_count": ResetCount,
+    "device": DeviceBulk,
     "fn_bulletin": FieldNoticeBulletin,
     "groups": DeviceGroup,
-    "track_members": SoftwareTrackMember,
-    "hw_eox_bulletin": HardwareEndOfLifeBulletin,
-    "device": Device,
-    "configuration_best_practice_rules_reference": ConfigBestPracticeRuleReference,
     "group_members": DeviceGroupMember,
-    "track_smupie_recommendation": SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
+    "history_reset": ResetHistory,
+    "lastest_reset": LastResetDetails,
+    "hw_eox_bulletin": HardwareEndOfLifeBulletin,
+    "psirt_bulletin": SecurityAdvisoryBulletin,
+    "reset_count": ResetCount,
+    "risk_mitigation_details": RiskMitigationDetails,
     "risk_mitigation_summary": RiskMitigationSummary,
+    "sw_eox_bulletin": SoftwareEndOfLifeBulletin,
+    "track_members": SoftwareTrackMember,
+    "track_smupie_recommendation": SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
+    "track_summary": SoftwareTrackSummary,
 }
 
 
@@ -191,10 +200,6 @@ class BCSOIAPI:
         # url = f'https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}'
 
         res = defaultdict(list)
-        # response = _get_response(url=url, headers={"Authorization": f"Bearer {self.jwt}"})
-        # for doc in jsonlines.Reader(response.iter_lines()):
-        #     res[doc["type"]].append(BULK_TYPE_MODEL_MAPPING[doc["type"]](**doc))
-
         with closing(
             requests.get(
                 url, headers={"Authorization": f"Bearer {self.jwt}"}, stream=True

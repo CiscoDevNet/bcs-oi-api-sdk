@@ -1,3 +1,4 @@
+jsonlines
 requests
 pyjwt
 pydantic
