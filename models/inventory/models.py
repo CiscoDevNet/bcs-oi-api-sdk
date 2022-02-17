@@ -40,7 +40,7 @@ class Device(BCSOIAPIBaseModel):
     user_field_4: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "inventory/devices"
 
 
@@ -67,5 +67,5 @@ class Asset(BCSOIAPIBaseModel):
     top_assembly_number_revision: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "inventory/assets"

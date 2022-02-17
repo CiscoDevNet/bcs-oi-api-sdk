@@ -20,7 +20,7 @@ class LastResetDetails(BCSOIAPIBaseModel):
     software_version: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "deviceReset/lastResetDetails"
 
 
@@ -29,7 +29,7 @@ class ResetCount(BCSOIAPIBaseModel):
     devices_reload_count: int
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "deviceReset/resetCount"
 
     @classmethod
@@ -54,5 +54,5 @@ class ResetHistory(BCSOIAPIBaseModel):
     reset_details: List[ResetDetails]
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "deviceReset/resetHistory"

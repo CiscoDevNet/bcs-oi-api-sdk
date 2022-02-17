@@ -34,16 +34,9 @@ def test_contract_model():
     contract = Contract(**contract_1)
     assert contract.is_covered == contract_1["isCovered"]
     assert isinstance(contract.base_product_id_list[0], BaseProduct)
-    assert (
-        contract.base_product_id_list[0].base_product_id
-        == contract_1["baseProductIdList"][0]["baseProductId"]
-    )
-    assert (
-        contract.warranty_end_date
-        == datetime.strptime(contract_1["warrantyEndDate"], "%Y-%m-%d").date()
-    )
+    assert contract.base_product_id_list[0].base_product_id == contract_1["baseProductIdList"][0]["baseProductId"]
+    assert contract.warranty_end_date == datetime.strptime(contract_1["warrantyEndDate"], "%Y-%m-%d").date()
     assert isinstance(contract.orderable_product_id_list[0], OrderableProductId)
     assert (
-        contract.orderable_product_id_list[0].item_position
-        == contract_1["orderableProductIdList"][0]["itemPosition"]
+        contract.orderable_product_id_list[0].item_position == contract_1["orderableProductIdList"][0]["itemPosition"]
     )

@@ -1,4 +1,5 @@
 from typing import Optional
+
 from ..models import BCSOIAPIBaseModel
 
 __all__ = ["RiskMitigationDetails", "RiskMitigationSummary"]
@@ -16,7 +17,7 @@ class RiskMitigationDetails(BCSOIAPIBaseModel):
     software_version: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "riskMitigation/details"
 
 
@@ -27,5 +28,5 @@ class RiskMitigationSummary(BCSOIAPIBaseModel):
     product_family: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "riskMitigation/summary"

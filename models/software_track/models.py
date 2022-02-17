@@ -43,7 +43,7 @@ class SoftwareTrackSummary(BCSOIAPIBaseModel):
     software_track_upgrade_reason: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "softwareTrack/summary"
 
 
@@ -62,7 +62,7 @@ class SoftwareTrackMember(BCSOIAPIBaseModel):
     software_track_standard_software_maintenance_update_count: Optional[int]
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "softwareTrack/members"
 
 
@@ -77,7 +77,7 @@ class SoftwareTrackSoftwareMaintenanceUpgradeCompliance(BCSOIAPIBaseModel):
     software_track_name: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "softwareTrack/softwareMaintenanceUpgradeCompliance"
 
 
@@ -89,5 +89,5 @@ class SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(BCSOIAPIBaseModel):
     software_track__recommendation_history: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "softwareTrack/softwareMaintenanceUpgradeRecommendations"

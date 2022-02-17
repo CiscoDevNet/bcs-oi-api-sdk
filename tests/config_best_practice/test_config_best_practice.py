@@ -1,7 +1,11 @@
 from datetime import datetime
 
-from models import (ConfigBestPracticeDetail, ConfigBestPracticeRule,
-                    ConfigBestPracticeRuleReference, ConfigBestPracticeSummary)
+from models import (
+    ConfigBestPracticeDetail,
+    ConfigBestPracticeRule,
+    ConfigBestPracticeRuleReference,
+    ConfigBestPracticeSummary,
+)
 
 config_best_practice_rule_1 = {
     "bestPracticeCaveat": "",
@@ -50,10 +54,7 @@ config_best_practice_summary_1 = {
 
 def test_config_best_practice_rule_model():
     config_best_practice_rule = ConfigBestPracticeRule(**config_best_practice_rule_1)
-    assert (
-        config_best_practice_rule.best_practice_rule_id
-        == config_best_practice_rule_1["bestPracticeRuleId"]
-    )
+    assert config_best_practice_rule.best_practice_rule_id == config_best_practice_rule_1["bestPracticeRuleId"]
     assert config_best_practice_rule.best_practice_rule_modification_timestamp is None
     assert config_best_practice_rule.created_timestamp == datetime.strptime(
         config_best_practice_rule_1["createdTimestamp"], "%Y-%m-%dT%H:%M:%S"
@@ -61,9 +62,7 @@ def test_config_best_practice_rule_model():
 
 
 def test_config_best_practice_rule_reference():
-    config_best_practice_rule_reference = ConfigBestPracticeRuleReference(
-        **config_best_practice_rule_reference_1
-    )
+    config_best_practice_rule_reference = ConfigBestPracticeRuleReference(**config_best_practice_rule_reference_1)
     assert (
         config_best_practice_rule_reference.best_practice_url_title
         == config_best_practice_rule_reference_1["bestPracticeUrlTitle"]
@@ -71,20 +70,10 @@ def test_config_best_practice_rule_reference():
 
 
 def test_config_best_practice_detail():
-    config_best_practice_detail = ConfigBestPracticeDetail(
-        **config_best_practice_detail_1
-    )
-    assert (
-        config_best_practice_detail.best_practice_nugget_id
-        == config_best_practice_detail_1["bestPracticeNuggetId"]
-    )
+    config_best_practice_detail = ConfigBestPracticeDetail(**config_best_practice_detail_1)
+    assert config_best_practice_detail.best_practice_nugget_id == config_best_practice_detail_1["bestPracticeNuggetId"]
 
 
 def test_config_best_practice_summary():
-    config_best_practice_summary = ConfigBestPracticeSummary(
-        **config_best_practice_summary_1
-    )
-    assert (
-        config_best_practice_summary.total_device_count
-        == config_best_practice_summary_1["totalDeviceCount"]
-    )
+    config_best_practice_summary = ConfigBestPracticeSummary(**config_best_practice_summary_1)
+    assert config_best_practice_summary.total_device_count == config_best_practice_summary_1["totalDeviceCount"]

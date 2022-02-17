@@ -1,9 +1,11 @@
-from typing import List, Optional, Union
+from typing import List, Optional
 
+from pydantic import validator
+
+from models.config_best_practice import ConfigBestPracticeDetail
 from models.contracts import Contract
 from models.inventory import Asset, Device
-from models.config_best_practice import ConfigBestPracticeDetail
-from models.product_alerts import FieldNotice, SoftwareEndOfLife, SecurityAdvisory, HardwareEndOfLife
+from models.product_alerts import FieldNotice, HardwareEndOfLife, SecurityAdvisory, SoftwareEndOfLife
 
 
 class AssetBulk(Asset):
@@ -14,6 +16,10 @@ class AssetBulk(Asset):
 
 class DeviceBulk(Device):
     assets: List[AssetBulk]
-    configuration_best_practice: Union[ConfigBestPracticeDetail, List[ConfigBestPracticeDetail]]
+    configuration_best_practice: Optional[ConfigBestPracticeDetail]
     software_end_of_life: Optional[SoftwareEndOfLife]
     security_advisory: List[SecurityAdvisory]
+
+    @validator("configuration_best_practice", pre=True)
+    def check_configuration_best_practice(cls, v) -> Optional[ConfigBestPracticeDetail]:
+        return v or None

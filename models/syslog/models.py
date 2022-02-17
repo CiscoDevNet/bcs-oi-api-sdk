@@ -24,5 +24,5 @@ class Syslog(BCSOIAPIBaseModel):
     timestamp: datetime
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "syslog/daily"

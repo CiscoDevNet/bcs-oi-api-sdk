@@ -11,7 +11,7 @@ class BCSOIAPIBaseModel(BaseModel):
         allow_population_by_field_name = True
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return ""
 
     @classmethod

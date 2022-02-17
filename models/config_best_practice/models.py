@@ -27,7 +27,7 @@ class ConfigBestPracticeRule(BCSOIAPIBaseModel):
     best_practice_rule_modification_timestamp: Optional[datetime]
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "configBestPractices/rules"
 
 
@@ -37,7 +37,7 @@ class ConfigBestPracticeRuleReference(BCSOIAPIBaseModel):
     best_practice_url_title: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "configBestPractices/rulesReferences"
 
 
@@ -52,7 +52,7 @@ class ConfigBestPracticeSummary(BCSOIAPIBaseModel):
     total_device_count: int
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "configBestPractices/summary"
 
 
@@ -63,5 +63,5 @@ class ConfigBestPracticeDetail(BCSOIAPIBaseModel):
     device_id: Optional[int]  # Optional for bulk
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "configBestPractices/details"

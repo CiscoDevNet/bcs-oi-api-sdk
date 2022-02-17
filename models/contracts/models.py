@@ -1,5 +1,7 @@
 from datetime import date
-from typing import List, Optional, Union
+from typing import List, Optional
+
+from pydantic import validator
 
 from ..models import BCSOIAPIBaseModel
 
@@ -25,17 +27,21 @@ class Contract(BCSOIAPIBaseModel):
     contract_site_country: str
     contract_site_customer_name: str
     contract_site_state_province: str
-    covered_product_line_end_date: Union[str, Optional[date]]  # Union for bulk
+    covered_product_line_end_date: Optional[date]
     is_covered: bool
     orderable_product_id_list: Optional[List[OrderableProductId]]  # Optional for bulk
     parent_serial_number: str
     serial_number: str
     service_contract_number: str
     service_line_description: str
-    warranty_end_date: Union[str, Optional[date]]  # Union for bulk
+    warranty_end_date: Optional[date]
     warranty_type: str
     warranty_type_description: Optional[str]  # Optional for bulk
 
+    @validator("covered_product_line_end_date", "warranty_end_date", pre=True)  # Needed for bulk
+    def check_date_string(cls, v) -> Optional[date]:
+        return v or None
+
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "contract/serials"

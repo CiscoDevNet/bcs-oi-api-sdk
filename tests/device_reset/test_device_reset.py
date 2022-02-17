@@ -53,10 +53,7 @@ def test_reset_history_model():
     reset_history = ResetHistory(**reset_history_1)
     assert reset_history.device_id == reset_history_1["deviceId"]
     assert reset_history.device_ip == reset_history_1["deviceIp"]
-    assert (
-        reset_history.reset_details[0].reset_reason
-        == reset_history_1["resetDetails"][0]["resetReason"]
-    )
+    assert reset_history.reset_details[0].reset_reason == reset_history_1["resetDetails"][0]["resetReason"]
     assert reset_history.reset_details[1].reset_timestamp == datetime.strptime(
         reset_history_1["resetDetails"][1]["resetTimestamp"], "%Y-%m-%dT%H:%M:%S"
     )

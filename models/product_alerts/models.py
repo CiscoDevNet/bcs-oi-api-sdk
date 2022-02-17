@@ -34,7 +34,7 @@ class FieldNoticeBulletin(BCSOIAPIBaseModel):
     problem_description: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "productAlerts/fieldNoticeBulletins"
 
 
@@ -46,7 +46,7 @@ class FieldNotice(BCSOIAPIBaseModel):
     physical_asset_id: int
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "productAlerts/fieldNotices"
 
 
@@ -57,7 +57,7 @@ class SecurityAdvisory(BCSOIAPIBaseModel):
     security_advisory_cold_id: int
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "productAlerts/securityAdvisories"
 
 
@@ -78,7 +78,7 @@ class SecurityAdvisoryBulletin(BCSOIAPIBaseModel):
     security_impact_rating: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "productAlerts/securityAdvisoryBulletins"
 
 
@@ -95,7 +95,7 @@ class HardwareEndOfLife(BCSOIAPIBaseModel):
     product_id: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "productAlerts/hardwareEndOfLife"
 
 
@@ -116,7 +116,7 @@ class HardwareEndOfLifeBulletin(BCSOIAPIBaseModel):
     product_id: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "productAlerts/hardwareEndOfLifeBulletins"
 
 
@@ -132,7 +132,7 @@ class SoftwareEndOfLife(BCSOIAPIBaseModel):
     software_version: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "productAlerts/softwareEndOfLife"
 
 
@@ -152,5 +152,5 @@ class SoftwareEndOfLifeBulletin(BCSOIAPIBaseModel):
     software_type: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "productAlerts/softwareEndOfLifeBulletins"

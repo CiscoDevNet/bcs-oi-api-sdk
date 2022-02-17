@@ -9,7 +9,7 @@ class DeviceGroupMember(BCSOIAPIBaseModel):
     group_name: str
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "deviceGroups/groupMembers"
 
 
@@ -20,5 +20,5 @@ class DeviceGroup(BCSOIAPIBaseModel):
     group_total_device_count: int
 
     @classmethod
-    def url_path(cls):
+    def url_path(cls) -> str:
         return "deviceGroups/groups"
