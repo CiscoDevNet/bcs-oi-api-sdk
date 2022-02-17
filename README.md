@@ -43,6 +43,8 @@ for advisory in security_advisories:
             f"\"{security_advisory_bulletins_dict[advisory.security_advisory_cold_id].bulletin_title}\""
         )
 
+# Getting everything in bulk
+bulk_alerts = bcs_oi_api.get_bulk_alerts()
 ```
 
 ## Installation
