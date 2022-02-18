@@ -1,13 +1,13 @@
 import re
 from datetime import date, datetime
 
-from tests.utils import check_model_creation
 from src.bcs_oi_api.models import (
     ConfigBestPracticeDetail,
     ConfigBestPracticeRule,
     ConfigBestPracticeRuleReference,
     ConfigBestPracticeSummary,
 )
+from tests.utils import check_model_creation
 
 config_best_practice_rule_1 = {
     "bestPracticeCaveat": "",

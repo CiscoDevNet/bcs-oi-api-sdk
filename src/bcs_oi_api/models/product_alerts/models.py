@@ -14,7 +14,7 @@ __all__ = [
     "HardwareEndOfLifeBulletin",
     "SoftwareAdvisoryAlert",
     "SoftwareEndOfLife",
-    "SoftwareEndOfLifeBulletin"
+    "SoftwareEndOfLifeBulletin",
 ]
 
 

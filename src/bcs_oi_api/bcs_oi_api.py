@@ -26,8 +26,8 @@ from .models import (
     SecurityAdvisoryBulletin,
     SoftwareEndOfLifeBulletin,
     SoftwareTrackMember,
-    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
+    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSummary,
 )
 
@@ -188,7 +188,7 @@ class BCSOIAPI:
 
         # Constructing the url
         url = f"https://{self.server}/bcs/staging/v2/{model.url_path()}"
-        url = f'https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}'
+        url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
 
         if model.response_items():
             results = []
@@ -208,13 +208,10 @@ class BCSOIAPI:
         self._check_and_renew_jwt()
 
         url = f"https://{self.server}/bcs/staging/v2/bulk/alerts"
-        url = f'https://{self.server}/{self.region}/bcs/{self.api_version}/bulk/alerts'
+        url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/bulk/alerts"
         res = defaultdict(list)
         with closing(requests.get(url, headers={"Authorization": f"Bearer {self.jwt}"}, stream=True)) as r:
             reader = jsonlines.Reader(r.iter_lines())
             for doc in reader:
-                try:
-                    res[BULK_TYPE_MODEL_MAPPING[doc["type"]].__name__].append(BULK_TYPE_MODEL_MAPPING[doc["type"]](**doc))
-                except Exception as e:
-                    pass
+                res[BULK_TYPE_MODEL_MAPPING[doc["type"]].__name__].append(BULK_TYPE_MODEL_MAPPING[doc["type"]](**doc))
         return res
