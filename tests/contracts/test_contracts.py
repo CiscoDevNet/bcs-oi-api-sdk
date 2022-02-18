@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from models import BaseProduct, Contract, OrderableProductId
+from src.bcs_oi_api.models import BaseProduct, Contract, OrderableProductId
 
 contract_1 = {
     "baseProductIdList": [{"baseProductId": "QSFP-100G-SM-SR="}],

@@ -1,4 +1,4 @@
-from models import Collector
+from src.bcs_oi_api.models import Collector
 
 collector_1 = {
     "applianceId": "CSP0009031587",

@@ -6,6 +6,7 @@ from .models import (
     SecurityAdvisory,
     SecurityAdvisoryBulletin,
     SecurityAdvisoryOutcome,
+    SoftwareAdvisoryAlert,
     SoftwareEndOfLife,
     SoftwareEndOfLifeBulletin,
 )

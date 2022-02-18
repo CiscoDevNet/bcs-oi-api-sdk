@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from models import LastResetDetails, ResetCount, ResetHistory
+from src.bcs_oi_api.models import LastResetDetails, ResetCount, ResetHistory
 
 reset_count_1 = {"devicesCrashCount": 4, "devicesReloadCount": 0}
 

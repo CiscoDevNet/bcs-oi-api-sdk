@@ -19,6 +19,7 @@ from .product_alerts import (
     SecurityAdvisory,
     SecurityAdvisoryBulletin,
     SecurityAdvisoryOutcome,
+    SoftwareAdvisoryAlert,
     SoftwareEndOfLife,
     SoftwareEndOfLifeBulletin,
 )

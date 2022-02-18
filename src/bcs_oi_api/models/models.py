@@ -2,8 +2,10 @@ from pydantic import BaseModel
 
 
 def _to_camel(string: str) -> str:
-    return f'{string.split("_")[0]}{"".join(word.capitalize() for word in string.split("_")[1:])}'
-
+    try:
+        return f'{string.split("_")[0]}{"".join(word[0].upper()+word[1:] for word in string.split("_")[1:])}'
+    except Exception as e:
+        pass
 
 class BCSOIAPIBaseModel(BaseModel):
     class Config:

@@ -12,8 +12,9 @@ __all__ = [
     "SecurityAdvisoryBulletin",
     "HardwareEndOfLife",
     "HardwareEndOfLifeBulletin",
+    "SoftwareAdvisoryAlert",
     "SoftwareEndOfLife",
-    "SoftwareEndOfLifeBulletin",
+    "SoftwareEndOfLifeBulletin"
 ]
 
 
@@ -154,3 +155,17 @@ class SoftwareEndOfLifeBulletin(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "productAlerts/softwareEndOfLifeBulletins"
+
+
+class SoftwareAdvisoryAlert(BCSOIAPIBaseModel):
+    deviceId: int
+    deviceName: str
+    imageName: str
+    softwareAlertType: str
+    softwareAlertUrl: str
+    softwareType: str
+    softwareVersion: str
+
+    @classmethod
+    def url_path(cls) -> str:
+        return "productAlerts/softwareAdvisoryAlerts"

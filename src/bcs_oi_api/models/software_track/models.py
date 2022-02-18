@@ -18,7 +18,7 @@ class SoftwareTrackSummary(BCSOIAPIBaseModel):
     software_track_compliant_device_count: int
     software_track_description: str
     software_track_id: int
-    software_track__last_modified_date: date
+    software_track_last_modified_date: date
     software_track_name: str
     software_track_non_compliant_device_count: int
     software_track_compliance_percent: float
@@ -85,8 +85,8 @@ class SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(BCSOIAPIBaseModel):
     software_name: str
     software_role: str
     software_track_id: int
-    software_track__name: str
-    software_track__recommendation_history: str
+    software_track_name: str
+    software_track_recommendation_history: str
 
     @classmethod
     def url_path(cls) -> str:

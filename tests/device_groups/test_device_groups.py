@@ -1,4 +1,4 @@
-from models import DeviceGroup, DeviceGroupMember
+from src.bcs_oi_api.models import DeviceGroup, DeviceGroupMember
 
 device_group_member_1 = {"deviceId": 24932787, "groupId": 366841, "groupName": "bci2"}
 

@@ -1,6 +1,8 @@
-from datetime import datetime
+import re
+from datetime import date, datetime
 
-from models import (
+from tests.utils import check_model_creation
+from src.bcs_oi_api.models import (
     ConfigBestPracticeDetail,
     ConfigBestPracticeRule,
     ConfigBestPracticeRuleReference,
@@ -24,6 +26,63 @@ config_best_practice_rule_1 = {
     "createdTimestamp": "2016-06-04T04:01:00",
     "softwareType": "NX-OS",
     "bestPracticeRuleModificationTimestamp": None,
+}
+
+config_best_practice_rule_2 = {
+    "bestPracticeCaveat": "",
+    "bestPracticeCorrectiveAction": "In the global configuration mode,enter 'snmp-server enable traps system' "
+    "command to enable system traps.",
+    "bestPracticeDescription": "If NX-OS device has system configured and running and SNMP Traps enabled then flag an "
+    "exception if globally you don't find:  \n\nsnmp-server enable traps system",
+    "bestPracticeNuggetId": 550118,
+    "bestPracticePrimaryTechnology": "*Network Management",
+    "bestPracticeRecommendation": "Cisco recommends to enable SNMP traps,as they are helpful to log the event "
+    "related to system process and can be used for troubleshooting when required.",
+    "bestPracticeRisk": "Low",
+    "bestPracticeRuleId": 11148,
+    "bestPracticeSecondaryTechnology": "",
+    "bestPracticeTitle": "System SNMP Traps Not Enabled",
+    "createdTimestamp": None,
+    "softwareType": "NX-OS",
+    "bestPracticeRuleModificationTimestamp": None,
+}
+
+config_best_practice_rule_3 = {
+    "bestPracticeCaveat": "",
+    "bestPracticeCorrectiveAction": "In the global configuration mode,enter 'snmp-server enable traps system' "
+    "command to enable system traps.",
+    "bestPracticeDescription": "If NX-OS device has system configured and running and SNMP Traps enabled then flag an "
+    "exception if globally you don't find:  \n\nsnmp-server enable traps system",
+    "bestPracticeNuggetId": 550118,
+    "bestPracticePrimaryTechnology": "*Network Management",
+    "bestPracticeRecommendation": "Cisco recommends to enable SNMP traps,as they are helpful to log the event "
+    "related to system process and can be used for troubleshooting when required.",
+    "bestPracticeRisk": "Low",
+    "bestPracticeRuleId": 11148,
+    "bestPracticeSecondaryTechnology": "",
+    "bestPracticeTitle": "System SNMP Traps Not Enabled",
+    "createdTimestamp": "2016-06-04T04:01:00",
+    "softwareType": "NX-OS",
+    "bestPracticeRuleModificationTimestamp": "2016-06-05T04:01:00",
+}
+
+config_best_practice_rule_4 = {
+    "bestPracticeCaveat": "",
+    "bestPracticeCorrectiveAction": "In the global configuration mode,enter 'snmp-server enable traps system' "
+    "command to enable system traps.",
+    "bestPracticeDescription": "If NX-OS device has system configured and running and SNMP Traps enabled then flag an "
+    "exception if globally you don't find:  \n\nsnmp-server enable traps system",
+    "bestPracticeNuggetId": 550118,
+    "bestPracticePrimaryTechnology": "*Network Management",
+    "bestPracticeRecommendation": "Cisco recommends to enable SNMP traps,as they are helpful to log the event "
+    "related to system process and can be used for troubleshooting when required.",
+    "bestPracticeRisk": "Low",
+    "bestPracticeRuleId": 11148,
+    "bestPracticeSecondaryTechnology": "",
+    "bestPracticeTitle": "System SNMP Traps Not Enabled",
+    "createdTimestamp": None,
+    "softwareType": "NX-OS",
+    "bestPracticeRuleModificationTimestamp": "2016-06-05T04:01:00",
 }
 
 config_best_practice_rule_reference_1 = {
@@ -54,11 +113,32 @@ config_best_practice_summary_1 = {
 
 def test_config_best_practice_rule_model():
     config_best_practice_rule = ConfigBestPracticeRule(**config_best_practice_rule_1)
-    assert config_best_practice_rule.best_practice_rule_id == config_best_practice_rule_1["bestPracticeRuleId"]
+    check_model_creation(input_dict=config_best_practice_rule_1, model_instance=config_best_practice_rule)
     assert config_best_practice_rule.best_practice_rule_modification_timestamp is None
     assert config_best_practice_rule.created_timestamp == datetime.strptime(
         config_best_practice_rule_1["createdTimestamp"], "%Y-%m-%dT%H:%M:%S"
     )
+
+    config_best_practice_rule = ConfigBestPracticeRule(**config_best_practice_rule_2)
+    check_model_creation(input_dict=config_best_practice_rule_2, model_instance=config_best_practice_rule)
+    assert config_best_practice_rule.best_practice_rule_modification_timestamp is None
+    assert config_best_practice_rule.created_timestamp is None
+
+    config_best_practice_rule = ConfigBestPracticeRule(**config_best_practice_rule_3)
+    check_model_creation(input_dict=config_best_practice_rule_3, model_instance=config_best_practice_rule)
+    assert config_best_practice_rule.best_practice_rule_modification_timestamp == datetime.strptime(
+        config_best_practice_rule_3["bestPracticeRuleModificationTimestamp"], "%Y-%m-%dT%H:%M:%S"
+    )
+    assert config_best_practice_rule.created_timestamp == datetime.strptime(
+        config_best_practice_rule_3["createdTimestamp"], "%Y-%m-%dT%H:%M:%S"
+    )
+
+    config_best_practice_rule = ConfigBestPracticeRule(**config_best_practice_rule_4)
+    check_model_creation(input_dict=config_best_practice_rule_4, model_instance=config_best_practice_rule)
+    assert config_best_practice_rule.best_practice_rule_modification_timestamp == datetime.strptime(
+        config_best_practice_rule_4["bestPracticeRuleModificationTimestamp"], "%Y-%m-%dT%H:%M:%S"
+    )
+    assert config_best_practice_rule.created_timestamp is None
 
 
 def test_config_best_practice_rule_reference():

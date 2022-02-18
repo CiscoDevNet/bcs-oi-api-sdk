@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 
 from ..models import BCSOIAPIBaseModel
 
@@ -10,7 +10,7 @@ class LastResetDetails(BCSOIAPIBaseModel):
     device_id: int
     device_ip: str
     device_name: str
-    inventory_timestamp: datetime
+    inventory_timestamp: Optional[datetime]
     last_reset_timestamp: datetime
     product_family: str
     product_id: str
