@@ -79,7 +79,9 @@ def test_config_best_practice_rule_model():
 
 def test_config_best_practice_rule_reference():
     config_best_practice_rule_reference = ConfigBestPracticeRuleReference(**config_best_practice_rule_reference_1)
-    check_model_creation(input_dict=config_best_practice_rule_reference_1, model_instance=config_best_practice_rule_reference)
+    check_model_creation(
+        input_dict=config_best_practice_rule_reference_1, model_instance=config_best_practice_rule_reference
+    )
 
 
 def test_config_best_practice_detail():

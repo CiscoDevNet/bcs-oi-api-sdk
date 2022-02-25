@@ -1,6 +1,5 @@
-from src.bcs_oi_api.models import RiskMitigationSummary, RiskMitigationDetails
+from src.bcs_oi_api.models import RiskMitigationDetails, RiskMitigationSummary
 from tests.utils import check_model_creation
-
 
 risk_mitigation_detail_1 = {
     "deviceId": 5848341,
@@ -11,7 +10,7 @@ risk_mitigation_detail_1 = {
     "riskCategory": "High",
     "riskScore": 30.26,
     "softwareType": "IOS",
-    "softwareVersion": "15.1(2)SY12"
+    "softwareVersion": "15.1(2)SY12",
 }
 
 
@@ -24,7 +23,7 @@ risk_mitigation_summary_1 = {
     "highRiskDeviceCount": 0,
     "lowRiskDeviceCount": 28,
     "mediumRiskDeviceCount": 56,
-    "productFamily": "Cisco Nexus 5000 Series Switches"
+    "productFamily": "Cisco Nexus 5000 Series Switches",
 }
 
 

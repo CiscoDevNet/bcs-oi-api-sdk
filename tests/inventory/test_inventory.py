@@ -1,7 +1,6 @@
 from src.bcs_oi_api.models import Asset, Device
 from tests.utils import check_model_creation
 
-
 asset_1 = {
     "chassisName": "10.201.23.147",
     "deviceId": 24948009,
@@ -22,7 +21,7 @@ asset_1 = {
     "slot": "FAN1",
     "softwareVersion": "",
     "topAssemblyNumber": "",
-    "topAssemblyNumberRevision": ""
+    "topAssemblyNumberRevision": "",
 }
 
 asset_2 = {
@@ -45,7 +44,7 @@ asset_2 = {
     "slot": "FAN1",
     "softwareVersion": "",
     "topAssemblyNumber": "",
-    "topAssemblyNumberRevision": ""
+    "topAssemblyNumberRevision": "",
 }
 
 
@@ -86,7 +85,7 @@ device_1 = {
     "userField1": "",
     "userField2": "",
     "userField3": "",
-    "userField4": ""
+    "userField4": "",
 }
 
 
@@ -121,7 +120,7 @@ device_2 = {
     "userField1": "",
     "userField2": "",
     "userField3": "",
-    "userField4": ""
+    "userField4": "",
 }
 
 

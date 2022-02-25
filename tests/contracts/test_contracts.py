@@ -1,6 +1,5 @@
-from tests.utils import check_model_creation
 from src.bcs_oi_api.models import Contract
-
+from tests.utils import check_model_creation
 
 contract_1 = {
     "baseProductIdList": [{"baseProductId": "QSFP-100G-SM-SR="}],

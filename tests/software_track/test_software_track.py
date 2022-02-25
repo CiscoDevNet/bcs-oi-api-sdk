@@ -1,4 +1,9 @@
-from src.bcs_oi_api.models import SoftwareTrackSummary, SoftwareTrackMember, SoftwareTrackSoftwareMaintenanceUpgradeCompliance, SoftwareTrackSoftwareMaintenanceUpgradeRecommendation
+from src.bcs_oi_api.models import (
+    SoftwareTrackMember,
+    SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
+    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
+    SoftwareTrackSummary,
+)
 from tests.utils import check_model_creation
 
 sw_track_summary_1 = {
@@ -30,7 +35,7 @@ sw_track_summary_1 = {
     "softwareTrackStatus": "Other",
     "softwareTrackTotalDeviceCount": 43,
     "softwareTrackTotalVersionCount": 24,
-    "softwareTrackUpgradeReason": "Planned Maintenance"
+    "softwareTrackUpgradeReason": "Planned Maintenance",
 }
 
 sw_track_summary_2 = {
@@ -62,7 +67,7 @@ sw_track_summary_2 = {
     "softwareTrackStatus": "Other",
     "softwareTrackTotalDeviceCount": 43,
     "softwareTrackTotalVersionCount": 24,
-    "softwareTrackUpgradeReason": "Planned Maintenance"
+    "softwareTrackUpgradeReason": "Planned Maintenance",
 }
 
 
@@ -84,7 +89,7 @@ sw_track_member_1 = {
     "softwareTrackSoftwareMaintenanceUpdateCompliantCount": 0,
     "softwareTrackSoftwareMaintenanceUpdateExtraCount": 0,
     "softwareTrackSoftwareMaintenanceUpdateMissingCount": 0,
-    "softwareTrackStandardSoftwareMaintenanceUpdateCount": None
+    "softwareTrackStandardSoftwareMaintenanceUpdateCount": None,
 }
 
 sw_track_member_2 = {
@@ -99,7 +104,7 @@ sw_track_member_2 = {
     "softwareTrackSoftwareMaintenanceUpdateCompliantCount": 0,
     "softwareTrackSoftwareMaintenanceUpdateExtraCount": 0,
     "softwareTrackSoftwareMaintenanceUpdateMissingCount": 0,
-    "softwareTrackStandardSoftwareMaintenanceUpdateCount": 9
+    "softwareTrackStandardSoftwareMaintenanceUpdateCount": 9,
 }
 
 
@@ -110,20 +115,24 @@ def test_software_track_member_model():
 
 
 sw_track_smu_compliance_1 = {
-  "deviceId": 19811003,
-  "softwareMaintenanceUpdatePackageInstallationEnvelopeType": "Committed",
-  "softwareName": "ncs5500-isis-2.1.0.0-r652",
-  "softwareRole": "PKG",
-  "softwareTrackDeviceSoftwareMaintenanceUpdatePIEAction": "Add",
-  "softwareTrackDeviceSoftwareMaintenanceUpdatePIECompliance": "Non-Compliant",
-  "softwareTrackId": 343768,
-  "softwareTrackName": "NCS5500"
+    "deviceId": 19811003,
+    "softwareMaintenanceUpdatePackageInstallationEnvelopeType": "Committed",
+    "softwareName": "ncs5500-isis-2.1.0.0-r652",
+    "softwareRole": "PKG",
+    "softwareTrackDeviceSoftwareMaintenanceUpdatePIEAction": "Add",
+    "softwareTrackDeviceSoftwareMaintenanceUpdatePIECompliance": "Non-Compliant",
+    "softwareTrackId": 343768,
+    "softwareTrackName": "NCS5500",
 }
 
 
 def test_software_track_software_maintance_upgrade_compliance_model():
-    software_track_software_maintenance_upgrade_compliance = SoftwareTrackSoftwareMaintenanceUpgradeCompliance(**sw_track_smu_compliance_1)
-    check_model_creation(input_dict=sw_track_smu_compliance_1, model_instance=software_track_software_maintenance_upgrade_compliance)
+    software_track_software_maintenance_upgrade_compliance = SoftwareTrackSoftwareMaintenanceUpgradeCompliance(
+        **sw_track_smu_compliance_1
+    )
+    check_model_creation(
+        input_dict=sw_track_smu_compliance_1, model_instance=software_track_software_maintenance_upgrade_compliance
+    )
 
 
 sw_track_smu_recommendation_1 = {
@@ -131,10 +140,15 @@ sw_track_smu_recommendation_1 = {
     "softwareRole": "SMU",
     "softwareTrackId": 343768,
     "softwareTrackName": "IOS XR",
-    "softwareTrackRecommendationHistory": "Previous1"
+    "softwareTrackRecommendationHistory": "Previous1",
 }
 
 
 def test_software_track_software_maintenance_upgrade_recommendation_model():
-    software_track_software_maintenance_upgrade_recommendation = SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(**sw_track_smu_recommendation_1)
-    check_model_creation(input_dict=sw_track_smu_recommendation_1, model_instance=software_track_software_maintenance_upgrade_recommendation)
+    software_track_software_maintenance_upgrade_recommendation = SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(
+        **sw_track_smu_recommendation_1
+    )
+    check_model_creation(
+        input_dict=sw_track_smu_recommendation_1,
+        model_instance=software_track_software_maintenance_upgrade_recommendation,
+    )

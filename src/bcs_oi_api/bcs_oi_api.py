@@ -170,12 +170,14 @@ class BCSOIAPI:
         model: Type[BCSOIAPIBaseModel],
         url_params: Optional[dict] = None,
         headers: Optional[dict] = None,
-    ) -> Union[List[BCSOIAPIBaseModel], BCSOIAPIBaseModel]:
+        generator: bool = False,
+    ) -> Union[Union[List[BCSOIAPIBaseModel], BCSOIAPIBaseModel], Generator[BCSOIAPIBaseModel, None, None]]:
         """
         Function that fetches the output of the BCS OI API for the given model
         :param model: BCSOIAPI model class for which the output has to be fetched
         :param url_params: dict containing the url parameters to be added to the request
         :param headers: dict containing the headers to be added to the request
+        :param generator: bool indicating whether to return all result at once or as generator
         :return: A list of objects of the model given as input for API endpoints that return a list of items,
         an object of the model given as input for API endpoints that return a single response.
         """
@@ -187,13 +189,15 @@ class BCSOIAPI:
         headers["Authorization"] = f"Bearer {self.jwt}"
 
         # Constructing the url
-        url = f"https://{self.server}/bcs/staging/v2/{model.url_path()}"
         url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
 
         if model.response_items():
             results = []
             for item in _get_all_items(url=url, headers=headers, url_params=url_params):
-                results.append(model(**item))
+                if generator:
+                    yield model(**item)
+                else:
+                    results.append(model(**item))
             return results
         else:
             response = _get_response(url=url, headers=headers, url_params=url_params)
@@ -207,7 +211,6 @@ class BCSOIAPI:
         # check and renew JWT if needed
         self._check_and_renew_jwt()
 
-        url = f"https://{self.server}/bcs/staging/v2/bulk/alerts"
         url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/bulk/alerts"
         res = defaultdict(list)
         with closing(requests.get(url, headers={"Authorization": f"Bearer {self.jwt}"}, stream=True)) as r:

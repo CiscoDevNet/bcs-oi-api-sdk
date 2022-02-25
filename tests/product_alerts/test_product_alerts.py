@@ -1,15 +1,25 @@
-from src.bcs_oi_api.models import SecurityAdvisory, SecurityAdvisoryBulletin, FieldNotice, FieldNoticeBulletin, HardwareEndOfLife, HardwareEndOfLifeBulletin, SoftwareEndOfLife, SoftwareEndOfLifeBulletin, SoftwareAdvisoryAlert
+from src.bcs_oi_api.models import (
+    FieldNotice,
+    FieldNoticeBulletin,
+    HardwareEndOfLife,
+    HardwareEndOfLifeBulletin,
+    SecurityAdvisory,
+    SecurityAdvisoryBulletin,
+    SoftwareAdvisoryAlert,
+    SoftwareEndOfLife,
+    SoftwareEndOfLifeBulletin,
+)
 from tests.utils import check_model_creation
 
 field_notice_bulletin_1 = {
     "bulletinFirstPublishedTimestamp": "2006-03-02T00:00:00",
     "bulletinLastUpdatedTimestamp": "2007-02-22T09:52:07",
-    "bulletinMappingCaveat": "Deviation numbers are not automatically checked.  Manual verification of the deviation number will be required.",
-    "bulletinTitle": "FN# 62271 CRS-8: AC Power Supplies may encounter hang, communication to the Power Supply is lost. Workaround or RMA for fix.",
+    "bulletinMappingCaveat": "Deviation numbers are not automatically checked.",
+    "bulletinTitle": "FN# 62271 CRS-8: AC Power Supplies may encounter hang.",
     "bulletinUrl": "http://www.cisco.com/en/US/ts/fn/620/fn62271.html",
     "fieldNoticeId": "62271",
     "fieldNoticeType": "Hardware",
-    "problemDescription": "CRS-8 AC Power Supplies occasionally lose communication capabilities due to an I2C hang. This happens in normal operating conditions when Power monitoring is enabled. Power monitoring is NOT enabled by default."
+    "problemDescription": "CRS-8 AC Power Supplies occasionally lose communication capabilities due to an I2C hang. ",
 }
 
 
@@ -23,7 +33,7 @@ field_notice_1 = {
     "fieldNoticeId": "64156",
     "matchConfidence": "Not Vulnerable",
     "matchConfidenceReason": "No Match on Product Family ,SW Version; Match on SW Type ",
-    "physicalAssetId": 256129731
+    "physicalAssetId": 256129731,
 }
 
 
@@ -37,7 +47,7 @@ security_advisory_bulletin_1 = {
     "bulletinFirstPublishedTimestamp": "2007-01-24T00:00:00",
     "bulletinLastUpdatedTimestamp": "2007-01-24T00:00:00",
     "bulletinMappingCaveat": "",
-    "bulletinSummary": "Cisco has released software updates that address these vulnerabilities. [Workarounds that mitigate these vulnerabilities are available.] This advisory is posted at http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20070124-crafted-tcp.",
+    "bulletinSummary": "Cisco has released software updates that address these vulnerabilities. ",
     "bulletinTitle": "Crafted TCP Packet Can Cause Denial of Service",
     "bulletinUrl": "http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20070124-crafted-tcp",
     "bulletinVersion": "1.1",
@@ -46,7 +56,7 @@ security_advisory_bulletin_1 = {
     "cveIds": "CVE-2007-0479",
     "securityAdvisoryColdId": 59,
     "securityAdvisoryId": "cisco-sa-20070124-crafted-tcp",
-    "securityImpactRating": "Low"
+    "securityImpactRating": "Low",
 }
 
 
@@ -59,7 +69,7 @@ security_advisory_1 = {
     "deviceId": 24932812,
     "matchConfidence": "Not Vulnerable",
     "matchConfidenceReason": "No Match on SW Version; Match on SW Type",
-    "securityAdvisoryColdId": 134
+    "securityAdvisoryColdId": 134,
 }
 
 
@@ -75,7 +85,7 @@ software_advisory_alert_1 = {
     "softwareAlertType": "SA",
     "softwareAlertUrl": "http://www.cisco.com/web/software/DefTracker/280805679/SA/ac104247.html",
     "softwareType": "IOS",
-    "softwareVersion": "12.2(50)SE"
+    "softwareVersion": "12.2(50)SE",
 }
 
 
@@ -87,7 +97,7 @@ def test_software_advisory_alert_model():
 hardware_end_of_life_bulletin_1 = {
     "bulletinNumber": "EOL12308",
     "bulletinTitle": "Nexus 5500 Series Switches ",
-    "bulletinUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html",
+    "bulletinUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/",
     "endOfLifeAnnouncementDate": "2018-05-05",
     "endOfNewServiceAttachmentDate": "2020-05-04",
     "endOfRoutineFailureAnalysisDate": "2020-05-04",
@@ -98,13 +108,13 @@ hardware_end_of_life_bulletin_1 = {
     "hardwareEndOfLifeId": 415556,
     "lastDayOfSupportDate": "2024-05-31",
     "lastShipDate": "2019-08-04",
-    "productId": "N5K-C5548UP"
+    "productId": "N5K-C5548UP",
 }
 
 hardware_end_of_life_bulletin_2 = {
     "bulletinNumber": "EOL12308",
     "bulletinTitle": "Nexus 5500 Series Switches ",
-    "bulletinUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html",
+    "bulletinUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/",
     "endOfLifeAnnouncementDate": "2018-05-05",
     "endOfNewServiceAttachmentDate": None,
     "endOfRoutineFailureAnalysisDate": None,
@@ -115,7 +125,7 @@ hardware_end_of_life_bulletin_2 = {
     "hardwareEndOfLifeId": 415556,
     "lastDayOfSupportDate": None,
     "lastShipDate": None,
-    "productId": "N5K-C5548UP"
+    "productId": "N5K-C5548UP",
 }
 
 
@@ -135,7 +145,7 @@ hardware_end_of_life_1 = {
     "nextEndOfLifeMilestoneDate": "2022-05-04",
     "physicalAssetId": 342519674,
     "physicalAssetType": "Chassis",
-    "productId": "N5K-C5548UP"
+    "productId": "N5K-C5548UP",
 }
 
 hardware_end_of_life_2 = {
@@ -148,7 +158,7 @@ hardware_end_of_life_2 = {
     "nextEndOfLifeMilestoneDate": None,
     "physicalAssetId": 342519674,
     "physicalAssetType": "Chassis",
-    "productId": "N5K-C5548UP"
+    "productId": "N5K-C5548UP",
 }
 
 
@@ -171,7 +181,7 @@ software_end_of_life_bulletin_1 = {
     "softwareMaintenanceVersion": "50",
     "softwareMajorVersion": "12.2",
     "softwareTrain": "SG",
-    "softwareType": "IOS"
+    "softwareType": "IOS",
 }
 
 software_end_of_life_bulletin_2 = {
@@ -187,7 +197,7 @@ software_end_of_life_bulletin_2 = {
     "softwareMaintenanceVersion": "50",
     "softwareMajorVersion": "12.2",
     "softwareTrain": "SG",
-    "softwareType": "IOS"
+    "softwareType": "IOS",
 }
 
 
@@ -206,7 +216,7 @@ software_end_of_life_1 = {
     "nextEndOfLifeMilestoneDate": "2022-03-02",
     "softwareEndOfLifeId": 1152,
     "softwareType": "FXOS",
-    "softwareVersion": "2.8.1.125"
+    "softwareVersion": "2.8.1.125",
 }
 
 software_end_of_life_2 = {
@@ -218,7 +228,7 @@ software_end_of_life_2 = {
     "nextEndOfLifeMilestoneDate": None,
     "softwareEndOfLifeId": 1152,
     "softwareType": "FXOS",
-    "softwareVersion": "2.8.1.125"
+    "softwareVersion": "2.8.1.125",
 }
 
 
