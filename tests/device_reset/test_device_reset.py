@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from src.bcs_oi_api.models import LastResetDetails, ResetCount, ResetHistory
+from tests.utils import check_model_creation
 
 reset_count_1 = {"devicesCrashCount": 4, "devicesReloadCount": 0}
 
@@ -42,27 +43,32 @@ last_reset_details_1 = {
     "softwareVersion": "16.6.4a",
 }
 
+last_reset_details_2 = {
+    "deviceId": 4761645,
+    "deviceIp": "10.39.236.65",
+    "deviceName": "BHPCLPAGSW01",
+    "inventoryTimestamp": None,
+    "lastResetTimestamp": "2021-09-27T21:57:27",
+    "productFamily": "Cisco Catalyst 3850 Series Switches",
+    "productId": "WS-C3850-24P-S",
+    "resetReason": "Power Failure or Unknown",
+    "resetType": "reload",
+    "softwareType": "IOS-XE",
+    "softwareVersion": "16.6.4a",
+}
+
 
 def test_reset_count_model():
     reset_count = ResetCount(**reset_count_1)
-    assert reset_count.devices_reload_count == reset_count_1["devicesReloadCount"]
-    assert reset_count.devices_crash_count == reset_count_1["devicesCrashCount"]
+    check_model_creation(input_dict=reset_count_1, model_instance=reset_count)
 
 
 def test_reset_history_model():
     reset_history = ResetHistory(**reset_history_1)
-    assert reset_history.device_id == reset_history_1["deviceId"]
-    assert reset_history.device_ip == reset_history_1["deviceIp"]
-    assert reset_history.reset_details[0].reset_reason == reset_history_1["resetDetails"][0]["resetReason"]
-    assert reset_history.reset_details[1].reset_timestamp == datetime.strptime(
-        reset_history_1["resetDetails"][1]["resetTimestamp"], "%Y-%m-%dT%H:%M:%S"
-    )
+    check_model_creation(input_dict=reset_history_1, model_instance=reset_history)
 
 
 def test_last_reset_details_model():
-    last_reset_details = LastResetDetails(**last_reset_details_1)
-    assert last_reset_details.device_id == last_reset_details_1["deviceId"]
-    assert last_reset_details.device_name == last_reset_details_1["deviceName"]
-    assert last_reset_details.inventory_timestamp == datetime.strptime(
-        last_reset_details_1["inventoryTimestamp"], "%Y-%m-%dT%H:%M:%S"
-    )
+    for last_reset_details_dict in [last_reset_details_1, last_reset_details_2]:
+        last_reset_details = LastResetDetails(**last_reset_details_dict)
+        check_model_creation(input_dict=last_reset_details_dict, model_instance=last_reset_details)

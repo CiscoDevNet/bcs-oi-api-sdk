@@ -158,13 +158,13 @@ class SoftwareEndOfLifeBulletin(BCSOIAPIBaseModel):
 
 
 class SoftwareAdvisoryAlert(BCSOIAPIBaseModel):
-    deviceId: int
-    deviceName: str
-    imageName: str
-    softwareAlertType: str
-    softwareAlertUrl: str
-    softwareType: str
-    softwareVersion: str
+    device_id: int
+    device_name: str
+    image_name: str
+    software_alert_type: str
+    software_alert_url: str
+    software_type: str
+    software_version: str
 
     @classmethod
     def url_path(cls) -> str:
