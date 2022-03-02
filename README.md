@@ -19,16 +19,16 @@ bcs_oi_api = BCSOIAPI(
     region='us'
 )
 
-# Getting all discovered devices
+# Getting a generator for all discovered devices
 devices = bcs_oi_api.get_output(model=Device)
 
 # Building a dictionary with as key the device_id and the value the Device object for lookups
 devices_dict = {device.device_id: device for device in devices}
 
-# Getting all the Security Advisories
+# Getting a generator for all the Security Advisories
 security_advisories = bcs_oi_api.get_output(model=SecurityAdvisory)
 
-# Getting all the Security Advisory Bulletins
+# Getting a generator for all the Security Advisory Bulletins
 security_advisory_bulletins = bcs_oi_api.get_output(model=SecurityAdvisoryBulletin)
 
 # Building a dictionary with as key the id of the bulletin and as value the bulletin itself for lookups

@@ -31,6 +31,7 @@ class Device(BCSOIAPIBaseModel):
     snmp_sys_contact: str
     snmp_sys_description: str
     snmp_sys_location: str
+    snmp_sys_name: str
     snmp_sys_object_id: str
     software_type: str
     software_version: str

@@ -2,7 +2,7 @@ import logging
 import time
 from collections import defaultdict
 from contextlib import closing
-from typing import Dict, Generator, List, Optional, Type, Union
+from typing import DefaultDict, Dict, Generator, List, Optional, Type
 
 import jsonlines
 import jwt
@@ -170,16 +170,13 @@ class BCSOIAPI:
         model: Type[BCSOIAPIBaseModel],
         url_params: Optional[dict] = None,
         headers: Optional[dict] = None,
-        generator: bool = False,
-    ) -> Union[Union[List[BCSOIAPIBaseModel], BCSOIAPIBaseModel], Generator[BCSOIAPIBaseModel, None, None]]:
+    ) -> Generator[BCSOIAPIBaseModel, None, None]:
         """
         Function that fetches the output of the BCS OI API for the given model
         :param model: BCSOIAPI model class for which the output has to be fetched
         :param url_params: dict containing the url parameters to be added to the request
         :param headers: dict containing the headers to be added to the request
-        :param generator: bool indicating whether to return all result at once or as generator
-        :return: A list of objects of the model given as input for API endpoints that return a list of items,
-        an object of the model given as input for API endpoints that return a single response.
+        :return: A generator which yields instances of objects of the model given as input for API endpoints
         """
         # check and renew JWT if needed
         self._check_and_renew_jwt()
@@ -192,18 +189,13 @@ class BCSOIAPI:
         url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
 
         if model.response_items():
-            results = []
             for item in _get_all_items(url=url, headers=headers, url_params=url_params):
-                if generator:
-                    yield model(**item)
-                else:
-                    results.append(model(**item))
-            return results
+                yield model(**item)
         else:
             response = _get_response(url=url, headers=headers, url_params=url_params)
-            return model(**response.json())
+            yield model(**response.json())
 
-    def get_bulk_alerts(self) -> Dict[str, List[BCSOIAPIBaseModel]]:
+    def get_bulk_alerts(self) -> DefaultDict[str, List[BCSOIAPIBaseModel]]:
         """
         Function that fetches the output of the bulk/alerts endpoint
         :return: dictionary with as keys the names of the models and as value a list of objects of this model

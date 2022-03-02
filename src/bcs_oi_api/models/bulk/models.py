@@ -2,10 +2,10 @@ from typing import List, Optional
 
 from pydantic import validator
 
-from src.bcs_oi_api.models.config_best_practice import ConfigBestPracticeDetail
-from src.bcs_oi_api.models.contracts import Contract
-from src.bcs_oi_api.models.inventory import Asset, Device
-from src.bcs_oi_api.models.product_alerts import FieldNotice, HardwareEndOfLife, SecurityAdvisory, SoftwareEndOfLife
+from ..config_best_practice import ConfigBestPracticeDetail
+from ..contracts import Contract
+from ..inventory import Asset, Device
+from ..product_alerts import FieldNotice, HardwareEndOfLife, SecurityAdvisory, SoftwareEndOfLife
 
 
 class AssetBulk(Asset):
