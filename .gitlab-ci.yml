@@ -14,7 +14,6 @@ python_typecheck:
         - python3 -m pip install flake8 mypy
         - python3 -m pip install -e .
         - python3 -m pip install types-requests
-        - mypy --install-types
         - mypy .
         - flake8 .
     only:
