@@ -39,7 +39,7 @@ class Contract(BCSOIAPIBaseModel):
     warranty_type_description: Optional[str]  # Optional for bulk
 
     @validator("covered_product_line_end_date", "warranty_end_date", pre=True)  # Needed for bulk
-    def check_date_string(cls, v) -> Optional[date]:
+    def check_date_string(cls, v: str) -> Optional[str]:
         return v or None
 
     @classmethod

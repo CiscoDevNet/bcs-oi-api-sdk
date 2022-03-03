@@ -21,5 +21,5 @@ class DeviceBulk(Device):
     security_advisory: List[SecurityAdvisory]
 
     @validator("configuration_best_practice", pre=True)
-    def check_configuration_best_practice(cls, v) -> Optional[ConfigBestPracticeDetail]:
+    def check_configuration_best_practice(cls, v: dict) -> Optional[dict]:
         return v or None
