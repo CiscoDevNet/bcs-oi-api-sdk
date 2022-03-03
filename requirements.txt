@@ -1,0 +1,4 @@
+jsonlines
+requests
+pyjwt
+pydantic

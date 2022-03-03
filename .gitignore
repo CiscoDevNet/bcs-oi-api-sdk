@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+.coverage
+.mypy_cache
+.pytest_cache
+dist
