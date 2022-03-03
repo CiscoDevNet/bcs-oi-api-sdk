@@ -3,8 +3,7 @@
 SDK for the Business Critical Services (BCS) Operations Insights (OI) API
 
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CiscoDevNet/bcs-oi-api-sdk/blob/master/LICENSE)
-[![](https://img.shields.io/pypi/v/bcs-apis.svg)](https://pypi.python.org/pypi/bcs-oi-api)
-
+[![](https://img.shields.io/pypi/v/bcs-oi-api.svg)](https://pypi.python.org/pypi/bcs-oi-api)
 
 ## Example
 
