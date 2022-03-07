@@ -67,7 +67,7 @@ bcs-oi-api is a *community developed* and *community supported* project. Feedbac
 
 bcs-oi-api is a *community developed* project. Code contributions are welcome via PRs!
 
- - [Business Cricital Services Operations Insights API](https://github.com/CiscoDevNet/bcs-oi-api-sdk)
+ - [Business Cricital Services Operations Insights API](hhttps://developer.cisco.com/docs/bcs-operational-insights/)
  - [Issues](https://github.com/CiscoDevNet/bcs-oi-api-sdk/issues)
 
 *Copyright (c) 2018-2021 Cisco and/or its affiliates.*
