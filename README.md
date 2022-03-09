@@ -2,7 +2,7 @@
 
 SDK for the Business Critical Services (BCS) Operations Insights (OI) API
 
-[![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CiscoDevNet/bcs-oi-api-sdk/blob/master/LICENSE)
+[![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/CiscoDevNet/bcs-oi-api-sdk/blob/master/LICENSE.md)
 [![](https://img.shields.io/pypi/v/bcs-oi-api.svg)](https://pypi.python.org/pypi/bcs-oi-api)
 
 ## Example
@@ -33,9 +33,10 @@ security_advisory_bulletins = bcs_oi_api.get_output(model=SecurityAdvisoryBullet
 security_advisory_bulletins_dict = {bulletin.security_advisory_cold_id: bulletin for bulletin in
                                     security_advisory_bulletins}
 
-# Listing devices which are vulnerable
+# Listing devices which are vulnerable to security advisories with a critical impact rating
 for advisory in security_advisories:
-    if advisory.match_confidence == SecurityAdvisoryOutcome.VULNERABLE:
+    if advisory.match_confidence == SecurityAdvisoryOutcome.VULNERABLE and \
+            security_advisory_bulletins_dict[advisory.security_advisory_cold_id].security_impact_rating == 'Critical':
         print(
             f"Device \"{devices_dict[advisory.device_id].device_name}\" is vulnerable to "
             f"\"{security_advisory_bulletins_dict[advisory.security_advisory_cold_id].bulletin_title}\""
@@ -67,7 +68,7 @@ bcs-oi-api is a *community developed* and *community supported* project. Feedbac
 
 bcs-oi-api is a *community developed* project. Code contributions are welcome via PRs!
 
- - [Business Cricital Services Operations Insights API](https://github.com/CiscoDevNet/bcs-oi-api-sdk)
+ - [Business Cricital Services Operations Insights API](https://developer.cisco.com/docs/bcs-operational-insights)
  - [Issues](https://github.com/CiscoDevNet/bcs-oi-api-sdk/issues)
 
 *Copyright (c) 2018-2021 Cisco and/or its affiliates.*
