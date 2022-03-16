@@ -71,10 +71,16 @@ def _get_response(url: str, headers: dict, url_params: Optional[dict] = None) ->
     try:
         response = requests.session().get(url=url, headers=headers, params=url_params)
         response.raise_for_status()
-    except (
-        requests.exceptions.HTTPError,
-        requests.exceptions.ConnectionError,
-    ) as err:
+    except requests.exceptions.ConnectionError as err:
+        logger.error(f"Failed to get items: {err}")
+        raise err
+    except requests.exceptions.HTTPError as err:
+        if err.response.status_code == 429:
+            retry_after = int(err.response.headers.get("Retry-After"))
+            logger.info(f"Rate limited, waiting {retry_after} seconds")
+            time.sleep(retry_after)
+            return _get_response(url=url, headers=headers, url_params=url_params)
+
         logger.error(f"Failed to get items: {err}")
         raise err
     else:
