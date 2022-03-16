@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+## [1.0.2] - 2022-03-16
+
+### Fixed
+ - Library does not retry after specified time when receiving 429 return code
+
 ## [1.0.1] - 2022-03-09
 
 ### Added
