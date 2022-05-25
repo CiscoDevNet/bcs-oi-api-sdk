@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+## [1.0.3] - 2022-05-25
+
+### Fixed
+ - Exception was raised when lastProfileTime of the collector was not available
+ - Fixed scenario generating exception when JWT expired while fetching all pages of a given API endpoint
+
 ## [1.0.2] - 2022-03-16
 
 ### Fixed

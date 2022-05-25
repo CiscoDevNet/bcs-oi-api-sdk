@@ -59,55 +59,6 @@ BULK_TYPE_MODEL_MAPPING = {
 }
 
 
-def _get_response(url: str, headers: dict, url_params: Optional[dict] = None) -> requests.models.Response:
-    """
-    Helper function that fetches the response for the given url
-    :param url: str representing the url
-    :param headers: dict containing the headers to send in the request
-    :param url_params: dict containing the url parameters to send in the request
-    :return: Response object returned by sending GET request to the specified url
-    """
-    url_params = url_params if url_params is not None else {}
-    try:
-        response = requests.session().get(url=url, headers=headers, params=url_params)
-        response.raise_for_status()
-    except requests.exceptions.ConnectionError as err:
-        logger.error(f"Failed to get items: {err}")
-        raise err
-    except requests.exceptions.HTTPError as err:
-        if err.response.status_code == 429:
-            retry_after = int(err.response.headers.get("Retry-After"))
-            logger.info(f"Rate limited, waiting {retry_after} seconds")
-            time.sleep(retry_after)
-            return _get_response(url=url, headers=headers, url_params=url_params)
-
-        logger.error(f"Failed to get items: {err}")
-        raise err
-    else:
-        return response
-
-
-def _get_all_items(url: str, headers: Dict[str, str], url_params: Optional[dict] = None) -> Generator[dict, None, None]:
-    """
-    Helper function that will fetch all items
-    :param url: str representing the url
-    :param headers: dictionary containing the headers to be added to the request
-    :param url_params: dictionary containing the url parameters
-    :return: Generator
-    """
-    offset, total = None, None
-    params = url_params if url_params is not None else {}
-    while offset is None or offset <= total:
-        if offset is not None:
-            params["offset"] = offset
-        response = _get_response(url=url, headers=headers, url_params=params)
-        res = response.json()
-        offset = int(response.headers.get("offset", 1)) + int(response.headers.get("max", 0))
-        total = int(response.headers.get("total", 0))
-        for item in res["items"]:
-            yield item
-
-
 class BCSOIAPI:
     def __init__(
         self,
@@ -165,11 +116,63 @@ class BCSOIAPI:
     def _check_and_renew_jwt(self) -> None:
         """
         Helper function that checks the expiry of the JSON Web Token (JWT) and when it is expired or is valid for
-        less than 60 seconds will renew the token
+        less than 300 seconds will renew the token
         """
         jwt_validity = self._expiry_jwt()
-        if jwt_validity is None or jwt_validity < 60:
+        if jwt_validity is None or jwt_validity < 300:
             self._obtain_jwt()
+
+    def _get_response(self, url: str, headers: dict, url_params: Optional[dict] = None) -> requests.models.Response:
+        """
+        Helper function that fetches the response for the given url
+        :param url: str representing the url
+        :param headers: dict containing the headers to send in the request
+        :param url_params: dict containing the url parameters to send in the request
+        :return: Response object returned by sending GET request to the specified url
+        """
+        url_params = url_params if url_params is not None else {}
+        try:
+            response = requests.session().get(url=url, headers=headers, params=url_params)
+            response.raise_for_status()
+        except requests.exceptions.ConnectionError as err:
+            logger.error(f"Failed to get items: {err}")
+            raise err
+        except requests.exceptions.HTTPError as err:
+            if err.response.status_code == 429:
+                retry_after = int(err.response.headers.get("Retry-After"))
+                logger.info(f"Rate limited, waiting {retry_after} seconds")
+                time.sleep(retry_after)
+                return self._get_response(url=url, headers=headers, url_params=url_params)
+            if err.response.status_code == 401:
+                self._check_and_renew_jwt()
+                headers["Authorization"] = f"Bearer {self.jwt}"
+                return self._get_response(url=url, headers=headers, url_params=url_params)
+            logger.error(f"Failed to get items: {err}")
+            raise err
+        else:
+            return response
+
+    def _get_all_items(
+        self, url: str, headers: Dict[str, str], url_params: Optional[dict] = None
+    ) -> Generator[dict, None, None]:
+        """
+        Helper function that will fetch all items
+        :param url: str representing the url
+        :param headers: dictionary containing the headers to be added to the request
+        :param url_params: dictionary containing the url parameters
+        :return: Generator
+        """
+        offset, total = None, None
+        params = url_params if url_params is not None else {}
+        while offset is None or offset <= total:
+            if offset is not None:
+                params["offset"] = offset
+            response = self._get_response(url=url, headers=headers, url_params=params)
+            res = response.json()
+            offset = int(response.headers.get("offset", 1)) + int(response.headers.get("max", 0))
+            total = int(response.headers.get("total", 0))
+            for item in res["items"]:
+                yield item
 
     def get_output(
         self,
@@ -195,10 +198,10 @@ class BCSOIAPI:
         url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
 
         if model.response_items():
-            for item in _get_all_items(url=url, headers=headers, url_params=url_params):
+            for item in self._get_all_items(url=url, headers=headers, url_params=url_params):
                 yield model(**item)
         else:
-            response = _get_response(url=url, headers=headers, url_params=url_params)
+            response = self._get_response(url=url, headers=headers, url_params=url_params)
             yield model(**response.json())
 
     def get_bulk_alerts(self) -> DefaultDict[str, List[BCSOIAPIBaseModel]]:
