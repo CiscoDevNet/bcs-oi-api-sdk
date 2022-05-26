@@ -1,4 +1,4 @@
-from src.bcs_oi_api.models import Details, Summary
+from src.bcs_oi_api.models.unidentified_inventory import Details, Summary
 from tests.utils import check_model_creation
 
 details_1 = {
