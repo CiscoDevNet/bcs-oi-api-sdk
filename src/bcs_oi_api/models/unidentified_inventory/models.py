@@ -1,6 +1,5 @@
 from datetime import datetime
 
-
 from ..models import BCSOIAPIBaseModel
 
 __all__ = ["UIRDetails", "UIRSummary"]

@@ -1,6 +1,5 @@
 from ..models import BCSOIAPIBaseModel
 
-
 __all__ = ["PINDetails"]
 
 
