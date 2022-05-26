@@ -3,10 +3,10 @@ from datetime import datetime
 
 from ..models import BCSOIAPIBaseModel
 
-__all__ = ["Details", "Summary"]
+__all__ = ["UIRDetails", "UIRSummary"]
 
 
-class Details(BCSOIAPIBaseModel):
+class UIRDetails(BCSOIAPIBaseModel):
     collector_name: str
     unidentified_device_name: str
     unidentified_device_ip_address: str
@@ -22,7 +22,7 @@ class Details(BCSOIAPIBaseModel):
         return "unidentifiedInventory/details"
 
 
-class Summary(BCSOIAPIBaseModel):
+class UIRSummary(BCSOIAPIBaseModel):
     unidentified_device_count: int
     new_unidentified_device_count: int
     recurring_unidentified_device_count: int

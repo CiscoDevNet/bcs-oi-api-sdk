@@ -1,1 +1,1 @@
-from .models import Details, Summary
+from .models import UIRDetails, UIRSummary

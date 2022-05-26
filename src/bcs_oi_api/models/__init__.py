@@ -10,8 +10,8 @@ from .contracts import BaseProduct, Contract, OrderableProductId
 from .device_groups import DeviceGroup, DeviceGroupMember
 from .device_reset import LastResetDetails, ResetCount, ResetDetails, ResetHistory
 from .inventory import Asset, Device
-from .unidentified_inventory import Details, Summary
-from .place_in_network import Details
+from .unidentified_inventory import UIRDetails, UIRSummary
+from .place_in_network import PINDetails
 from .models import BCSOIAPIBaseModel
 from .product_alerts import (
     FieldNotice,

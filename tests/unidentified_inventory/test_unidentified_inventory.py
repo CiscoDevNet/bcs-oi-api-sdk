@@ -1,4 +1,4 @@
-from src.bcs_oi_api.models.unidentified_inventory import Details, Summary
+from src.bcs_oi_api.models.unidentified_inventory import UIRDetails, UIRSummary
 from tests.utils import check_model_creation
 
 details_1 = {
@@ -15,7 +15,7 @@ details_1 = {
 
 
 def test_unidentified_inventory_details_model():
-    details = Details(**details_1)
+    details = UIRDetails(**details_1)
     check_model_creation(input_dict=details_1, model_instance=details)
 
 
@@ -34,7 +34,7 @@ summary_1 = {
 
 
 def test_unidentified_inventory_summary_model():
-    summary = Summary(**summary_1)
+    summary = UIRSummary(**summary_1)
     check_model_creation(input_dict=summary_1, model_instance=summary)
 
 

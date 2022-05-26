@@ -1,10 +1,10 @@
 from ..models import BCSOIAPIBaseModel
 
 
-__all__ = ["Details"]
+__all__ = ["PINDetails"]
 
 
-class Details(BCSOIAPIBaseModel):
+class PINDetails(BCSOIAPIBaseModel):
     device_id: int
     device_name: str
     predicted_importance: str

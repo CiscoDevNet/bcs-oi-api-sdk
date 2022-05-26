@@ -1,1 +1,1 @@
-from .models import Details
+from .models import PINDetails

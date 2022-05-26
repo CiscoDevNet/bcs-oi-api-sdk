@@ -1,4 +1,4 @@
-from src.bcs_oi_api.models.place_in_network import Details
+from src.bcs_oi_api.models.place_in_network import PINDetails
 from tests.utils import check_model_creation
 
 details_1 = {
@@ -10,6 +10,6 @@ details_1 = {
 
 
 def test_place_in_network_details_model():
-    details = Details(**details_1)
+    details = PINDetails(**details_1)
     check_model_creation(input_dict=details_1, model_instance=details)
 
