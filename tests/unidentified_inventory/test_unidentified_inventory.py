@@ -10,7 +10,7 @@ details_1 = {
     "unidentifiedDeviceStatus": "Recurring",
     "unidentifiedDevicePlatform": "N9K-C9372PX",
     "unidentifiedDeviceScore": 1,
-    "lastUpdatedTimestamp": "2022-02-14T19:57:18"
+    "lastUpdatedTimestamp": "2022-02-14T19:57:18",
 }
 
 
@@ -20,21 +20,19 @@ def test_unidentified_inventory_details_model() -> None:
 
 
 summary_1 = {
-  "unidentifiedDeviceCount": 295,
-  "newUnidentifiedDeviceCount": 52,
-  "recurringUnidentifiedDeviceCount": 243,
-  "newlyManagedUnidentifiedDeviceCount": 25,
-  "deletedUnidentifiedDeviceCount": 29,
-  "cdpSourcedUnidentifiedDeviceCount": 270,
-  "syslogSourcedUnidentifiedDeviceCount": 1,
-  "configSubnetSourcedUnidentifiedDeviceCount": 24,
-  "configProtocolSourcedUnidentifiedDeviceCount": 0,
-  "lastUpdatedTimestamp": "2022-02-14T19:57:18"
+    "unidentifiedDeviceCount": 295,
+    "newUnidentifiedDeviceCount": 52,
+    "recurringUnidentifiedDeviceCount": 243,
+    "newlyManagedUnidentifiedDeviceCount": 25,
+    "deletedUnidentifiedDeviceCount": 29,
+    "cdpSourcedUnidentifiedDeviceCount": 270,
+    "syslogSourcedUnidentifiedDeviceCount": 1,
+    "configSubnetSourcedUnidentifiedDeviceCount": 24,
+    "configProtocolSourcedUnidentifiedDeviceCount": 0,
+    "lastUpdatedTimestamp": "2022-02-14T19:57:18",
 }
 
 
 def test_unidentified_inventory_summary_model() -> None:
     summary = UIRSummary(**summary_1)
     check_model_creation(input_dict=summary_1, model_instance=summary)
-
-
