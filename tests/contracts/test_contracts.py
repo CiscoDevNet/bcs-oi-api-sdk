@@ -57,7 +57,7 @@ contract_2 = {
 }
 
 
-def test_contract_model():
+def test_contract_model() -> None:
     for contract_dict in [contract_1, contract_2]:
         contract = Contract(**contract_dict)
         check_model_creation(input_dict=contract_dict, model_instance=contract)

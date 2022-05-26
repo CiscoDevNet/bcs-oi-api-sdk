@@ -9,7 +9,7 @@ details_1 = {
 }
 
 
-def test_place_in_network_details_model():
+def test_place_in_network_details_model() -> None:
     details = PINDetails(**details_1)
     check_model_creation(input_dict=details_1, model_instance=details)
 

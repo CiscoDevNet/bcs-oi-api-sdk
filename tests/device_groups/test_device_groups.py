@@ -11,11 +11,11 @@ device_group_1 = {
 }
 
 
-def test_device_group_member_model():
+def test_device_group_member_model() -> None:
     device_group_member = DeviceGroupMember(**device_group_member_1)
     check_model_creation(input_dict=device_group_member_1, model_instance=device_group_member)
 
 
-def test_device_group_model():
+def test_device_group_model() -> None:
     device_group = DeviceGroup(**device_group_1)
     check_model_creation(input_dict=device_group_1, model_instance=device_group)

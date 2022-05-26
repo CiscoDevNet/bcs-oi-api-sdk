@@ -48,7 +48,7 @@ asset_2 = {
 }
 
 
-def test_asset_model():
+def test_asset_model() -> None:
     for asset_dict in [asset_1, asset_2]:
         asset = Asset(**asset_dict)
         check_model_creation(input_dict=asset_dict, model_instance=asset)
@@ -126,7 +126,7 @@ device_2 = {
 }
 
 
-def test_device_model():
+def test_device_model() -> None:
     for device_dict in [device_1, device_2]:
         device = Device(**device_dict)
         check_model_creation(input_dict=device_dict, model_instance=device)

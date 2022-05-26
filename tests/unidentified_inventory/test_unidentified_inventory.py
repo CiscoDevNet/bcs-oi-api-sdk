@@ -14,7 +14,7 @@ details_1 = {
 }
 
 
-def test_unidentified_inventory_details_model():
+def test_unidentified_inventory_details_model() -> None:
     details = UIRDetails(**details_1)
     check_model_creation(input_dict=details_1, model_instance=details)
 
@@ -33,7 +33,7 @@ summary_1 = {
 }
 
 
-def test_unidentified_inventory_summary_model():
+def test_unidentified_inventory_summary_model() -> None:
     summary = UIRSummary(**summary_1)
     check_model_creation(input_dict=summary_1, model_instance=summary)
 

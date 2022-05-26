@@ -71,24 +71,24 @@ config_best_practice_summary_1 = {
 }
 
 
-def test_config_best_practice_rule_model():
+def test_config_best_practice_rule_model() -> None:
     for config_best_practice_rule_dict in [config_best_practice_rule_1, config_best_practice_rule_2]:
         config_best_practice_rule = ConfigBestPracticeRule(**config_best_practice_rule_dict)
         check_model_creation(input_dict=config_best_practice_rule_dict, model_instance=config_best_practice_rule)
 
 
-def test_config_best_practice_rule_reference():
+def test_config_best_practice_rule_reference() -> None:
     config_best_practice_rule_reference = ConfigBestPracticeRuleReference(**config_best_practice_rule_reference_1)
     check_model_creation(
         input_dict=config_best_practice_rule_reference_1, model_instance=config_best_practice_rule_reference
     )
 
 
-def test_config_best_practice_detail():
+def test_config_best_practice_detail() -> None:
     config_best_practice_detail = ConfigBestPracticeDetail(**config_best_practice_detail_1)
     check_model_creation(input_dict=config_best_practice_detail_1, model_instance=config_best_practice_detail)
 
 
-def test_config_best_practice_summary():
+def test_config_best_practice_summary() -> None:
     config_best_practice_summary = ConfigBestPracticeSummary(**config_best_practice_summary_1)
     check_model_creation(input_dict=config_best_practice_summary_1, model_instance=config_best_practice_summary)
