@@ -11,6 +11,7 @@ from .device_groups import DeviceGroup, DeviceGroupMember
 from .device_reset import LastResetDetails, ResetCount, ResetDetails, ResetHistory
 from .inventory import Asset, Device
 from .models import BCSOIAPIBaseModel
+from .place_in_network import PINDetails
 from .product_alerts import (
     FieldNotice,
     FieldNoticeBulletin,
@@ -31,3 +32,4 @@ from .software_track import (
     SoftwareTrackSummary,
 )
 from .syslog import Syslog
+from .unidentified_inventory import UIRDetails, UIRSummary

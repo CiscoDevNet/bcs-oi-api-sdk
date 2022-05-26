@@ -10,6 +10,6 @@ collector_1 = {
 }
 
 
-def test_collector_model():
+def test_collector_model() -> None:
     collector = Collector(**collector_1)
     assert collector.appliance_id == collector_1["applianceId"]

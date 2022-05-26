@@ -1,7 +1,7 @@
 from src.bcs_oi_api.models import Contract
 from tests.utils import check_model_creation
 
-contract_1 = {
+contract_1: dict = {
     "baseProductIdList": [{"baseProductId": "QSFP-100G-SM-SR="}],
     "contractSiteAddress": "225 W. TASMAN DRIVE",
     "contractSiteCity": "SAN JOSE",
@@ -29,7 +29,7 @@ contract_1 = {
 }
 
 
-contract_2 = {
+contract_2: dict = {
     "baseProductIdList": [{"baseProductId": "QSFP-100G-SM-SR="}],
     "contractSiteAddress": "225 W. TASMAN DRIVE",
     "contractSiteCity": "SAN JOSE",
@@ -57,7 +57,7 @@ contract_2 = {
 }
 
 
-def test_contract_model():
+def test_contract_model() -> None:
     for contract_dict in [contract_1, contract_2]:
         contract = Contract(**contract_dict)
         check_model_creation(input_dict=contract_dict, model_instance=contract)

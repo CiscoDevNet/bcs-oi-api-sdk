@@ -11,7 +11,7 @@ from src.bcs_oi_api.models import (
 )
 from tests.utils import check_model_creation
 
-field_notice_bulletin_1 = {
+field_notice_bulletin_1: dict = {
     "bulletinFirstPublishedTimestamp": "2006-03-02T00:00:00",
     "bulletinLastUpdatedTimestamp": "2007-02-22T09:52:07",
     "bulletinMappingCaveat": "Deviation numbers are not automatically checked.",
@@ -23,12 +23,12 @@ field_notice_bulletin_1 = {
 }
 
 
-def test_field_notice_bulletin_model():
+def test_field_notice_bulletin_model() -> None:
     field_notice_bulletin = FieldNoticeBulletin(**field_notice_bulletin_1)
     check_model_creation(input_dict=field_notice_bulletin_1, model_instance=field_notice_bulletin)
 
 
-field_notice_1 = {
+field_notice_1: dict = {
     "deviceId": 24948009,
     "fieldNoticeId": "64156",
     "matchConfidence": "Not Vulnerable",
@@ -37,12 +37,12 @@ field_notice_1 = {
 }
 
 
-def test_field_notice_model():
+def test_field_notice_model() -> None:
     field_notice = FieldNotice(**field_notice_1)
     check_model_creation(input_dict=field_notice_1, model_instance=field_notice)
 
 
-security_advisory_bulletin_1 = {
+security_advisory_bulletin_1: dict = {
     "bugIds": "CSCek37177",
     "bulletinFirstPublishedTimestamp": "2007-01-24T00:00:00",
     "bulletinLastUpdatedTimestamp": "2007-01-24T00:00:00",
@@ -60,12 +60,12 @@ security_advisory_bulletin_1 = {
 }
 
 
-def test_security_advisory_bulletin_model():
+def test_security_advisory_bulletin_model() -> None:
     security_advisor_bulletin = SecurityAdvisoryBulletin(**security_advisory_bulletin_1)
     check_model_creation(input_dict=security_advisory_bulletin_1, model_instance=security_advisor_bulletin)
 
 
-security_advisory_1 = {
+security_advisory_1: dict = {
     "deviceId": 24932812,
     "matchConfidence": "Not Vulnerable",
     "matchConfidenceReason": "No Match on SW Version; Match on SW Type",
@@ -73,12 +73,12 @@ security_advisory_1 = {
 }
 
 
-def test_security_advisory_model():
+def test_security_advisory_model() -> None:
     security_advisory = SecurityAdvisory(**security_advisory_1)
     check_model_creation(input_dict=security_advisory_1, model_instance=security_advisory)
 
 
-software_advisory_alert_1 = {
+software_advisory_alert_1: dict = {
     "deviceId": 26431166,
     "deviceName": "10.81.98.8",
     "imageName": "C3560-IPSERVICESK9-M",
@@ -89,12 +89,12 @@ software_advisory_alert_1 = {
 }
 
 
-def test_software_advisory_alert_model():
+def test_software_advisory_alert_model() -> None:
     software_advisory_alert = SoftwareAdvisoryAlert(**software_advisory_alert_1)
     check_model_creation(input_dict=software_advisory_alert_1, model_instance=software_advisory_alert)
 
 
-hardware_end_of_life_bulletin_1 = {
+hardware_end_of_life_bulletin_1: dict = {
     "bulletinNumber": "EOL12308",
     "bulletinTitle": "Nexus 5500 Series Switches ",
     "bulletinUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/",
@@ -111,7 +111,7 @@ hardware_end_of_life_bulletin_1 = {
     "productId": "N5K-C5548UP",
 }
 
-hardware_end_of_life_bulletin_2 = {
+hardware_end_of_life_bulletin_2: dict = {
     "bulletinNumber": "EOL12308",
     "bulletinTitle": "Nexus 5500 Series Switches ",
     "bulletinUrl": "https://www.cisco.com/c/en/us/products/collateral/switches/",
@@ -129,13 +129,14 @@ hardware_end_of_life_bulletin_2 = {
 }
 
 
-def test_hardware_end_of_life_bulletin_model():
+def test_hardware_end_of_life_bulletin_model() -> None:
+
     for hw_eol_bulletin_dict in [hardware_end_of_life_bulletin_1, hardware_end_of_life_bulletin_2]:
         hardware_end_of_life_bulletin = HardwareEndOfLifeBulletin(**hw_eol_bulletin_dict)
         check_model_creation(input_dict=hw_eol_bulletin_dict, model_instance=hardware_end_of_life_bulletin)
 
 
-hardware_end_of_life_1 = {
+hardware_end_of_life_1: dict = {
     "currentEndOfLifeMilestone": "EoSWM,EoRFA",
     "currentEndOfLifeMilestoneDate": "2020-05-04",
     "deviceId": 26809025,
@@ -148,7 +149,7 @@ hardware_end_of_life_1 = {
     "productId": "N5K-C5548UP",
 }
 
-hardware_end_of_life_2 = {
+hardware_end_of_life_2: dict = {
     "currentEndOfLifeMilestone": "EoSWM,EoRFA",
     "currentEndOfLifeMilestoneDate": "2020-05-04",
     "deviceId": 26809025,
@@ -162,13 +163,13 @@ hardware_end_of_life_2 = {
 }
 
 
-def test_hardware_end_of_life_model():
+def test_hardware_end_of_life_model() -> None:
     for hw_eol_dict in [hardware_end_of_life_1, hardware_end_of_life_2]:
         hardware_end_of_life = HardwareEndOfLife(**hw_eol_dict)
         check_model_creation(input_dict=hw_eol_dict, model_instance=hardware_end_of_life)
 
 
-software_end_of_life_bulletin_1 = {
+software_end_of_life_bulletin_1: dict = {
     "bulletinNumber": "EOL7004",
     "bulletinTitle": "Cisco IOS Software Release 12.2(50)SG",
     "bulletinUrl": "http://www.cisco.com/en/US/prod/collateral/switches/ps5718/ps4324/eol_c51_593690.html",
@@ -184,7 +185,7 @@ software_end_of_life_bulletin_1 = {
     "softwareType": "IOS",
 }
 
-software_end_of_life_bulletin_2 = {
+software_end_of_life_bulletin_2: dict = {
     "bulletinNumber": "EOL7004",
     "bulletinTitle": "Cisco IOS Software Release 12.2(50)SG",
     "bulletinUrl": "http://www.cisco.com/en/US/prod/collateral/switches/ps5718/ps4324/eol_c51_593690.html",
@@ -201,13 +202,13 @@ software_end_of_life_bulletin_2 = {
 }
 
 
-def test_software_end_of_life_bulletin_model():
+def test_software_end_of_life_bulletin_model() -> None:
     for sw_eol_bulletin_dict in [software_end_of_life_bulletin_1, software_end_of_life_bulletin_2]:
         software_end_of_life_bulletin = SoftwareEndOfLifeBulletin(**sw_eol_bulletin_dict)
         check_model_creation(input_dict=sw_eol_bulletin_dict, model_instance=software_end_of_life_bulletin)
 
 
-software_end_of_life_1 = {
+software_end_of_life_1: dict = {
     "currentEndOfLifeMilestone": "Announced",
     "currentEndOfLifeMilestoneDate": "2021-09-01",
     "deviceId": 25691707,
@@ -219,7 +220,7 @@ software_end_of_life_1 = {
     "softwareVersion": "2.8.1.125",
 }
 
-software_end_of_life_2 = {
+software_end_of_life_2: dict = {
     "currentEndOfLifeMilestone": "Announced",
     "currentEndOfLifeMilestoneDate": None,
     "deviceId": 25691707,
@@ -232,7 +233,7 @@ software_end_of_life_2 = {
 }
 
 
-def test_software_end_of_life_model():
+def test_software_end_of_life_model() -> None:
     for sw_eol_dict in [software_end_of_life_1, software_end_of_life_2]:
         software_end_of_life = SoftwareEndOfLife(**sw_eol_dict)
         check_model_creation(input_dict=sw_eol_dict, model_instance=software_end_of_life)

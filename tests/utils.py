@@ -5,7 +5,7 @@ from src.bcs_oi_api import BCSOIAPIBaseModel
 from src.bcs_oi_api.models import SecurityAdvisoryOutcome
 
 
-def check_model_creation(input_dict: dict, model_instance: BCSOIAPIBaseModel):
+def check_model_creation(input_dict: dict, model_instance: BCSOIAPIBaseModel) -> None:
     for k, v in input_dict.items():
         attribute_name = (re.sub(r"(?<!^)(?=[A-Z0-9])", "_", k).lower()).replace("p_i_e", "PIE")
         if isinstance(model_instance.__getattribute__(attribute_name), list):

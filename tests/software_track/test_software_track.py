@@ -71,7 +71,7 @@ sw_track_summary_2 = {
 }
 
 
-def test_software_track_summary_model():
+def test_software_track_summary_model() -> None:
     for sw_track_summary_dict in [sw_track_summary_1, sw_track_summary_2]:
         software_track_summary = SoftwareTrackSummary(**sw_track_summary_dict)
         check_model_creation(input_dict=sw_track_summary_dict, model_instance=software_track_summary)
@@ -108,7 +108,7 @@ sw_track_member_2 = {
 }
 
 
-def test_software_track_member_model():
+def test_software_track_member_model() -> None:
     for sw_track_member_dict in [sw_track_member_1, sw_track_member_2]:
         software_track_member = SoftwareTrackMember(**sw_track_member_dict)
         check_model_creation(input_dict=sw_track_member_dict, model_instance=software_track_member)
@@ -126,7 +126,7 @@ sw_track_smu_compliance_1 = {
 }
 
 
-def test_software_track_software_maintance_upgrade_compliance_model():
+def test_software_track_software_maintance_upgrade_compliance_model() -> None:
     software_track_software_maintenance_upgrade_compliance = SoftwareTrackSoftwareMaintenanceUpgradeCompliance(
         **sw_track_smu_compliance_1
     )
@@ -144,7 +144,7 @@ sw_track_smu_recommendation_1 = {
 }
 
 
-def test_software_track_software_maintenance_upgrade_recommendation_model():
+def test_software_track_software_maintenance_upgrade_recommendation_model() -> None:
     software_track_software_maintenance_upgrade_recommendation = SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(
         **sw_track_smu_recommendation_1
     )

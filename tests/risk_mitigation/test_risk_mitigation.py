@@ -14,7 +14,7 @@ risk_mitigation_detail_1 = {
 }
 
 
-def test_risk_mitigation_detail_model():
+def test_risk_mitigation_detail_model() -> None:
     risk_mitigation_detail = RiskMitigationDetails(**risk_mitigation_detail_1)
     check_model_creation(input_dict=risk_mitigation_detail_1, model_instance=risk_mitigation_detail)
 
@@ -27,6 +27,6 @@ risk_mitigation_summary_1 = {
 }
 
 
-def test_risk_mitigation_summary_model():
+def test_risk_mitigation_summary_model() -> None:
     risk_mitigation_summary = RiskMitigationSummary(**risk_mitigation_summary_1)
     check_model_creation(input_dict=risk_mitigation_summary_1, model_instance=risk_mitigation_summary)
