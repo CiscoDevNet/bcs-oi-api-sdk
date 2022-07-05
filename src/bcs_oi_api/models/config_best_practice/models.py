@@ -70,13 +70,9 @@ class ConfigBestPracticeDetail(BCSOIAPIBaseModel):
 class ConfigBestPracticeDetailFilter(BCSOIAPIBaseModel):
     best_practice_rule_id: Optional[list]
     device_id: Optional[list]
-    best_practice_rule_id: Optional[list]
-    device_id: Optional[list]
 
 
 class ConfigBestPracticeRuleFilter(BCSOIAPIBaseModel):
-    best_practice_rule_id: Optional[list]
-    best_practice_risk: Optional[list]
     best_practice_rule_id: Optional[list]
     best_practice_risk: Optional[list]
 
