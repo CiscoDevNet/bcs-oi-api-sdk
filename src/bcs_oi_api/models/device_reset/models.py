@@ -58,11 +58,11 @@ class ResetHistory(BCSOIAPIBaseModel):
         return "deviceReset/resetHistory"
 
 
-# class LastResetDetailsFilter(BCSOIAPIBaseModel):
-#     device_id: Optional[list[int]]
-#     product_id: Optional[list[str]]
-#
-#
-# class ResetHistoryFilter(BCSOIAPIBaseModel):
-#     device_id: Optional[list[int]]
-#     product_id: Optional[list[str]]
+class LastResetDetailsFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    product_id: Optional[list]
+
+
+class ResetHistoryFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    product_id: Optional[list]

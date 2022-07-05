@@ -12,7 +12,7 @@ from .config_best_practice import (
 )
 from .contracts import BaseProduct, Contract, OrderableProductId, ContractFilter
 from .device_groups import DeviceGroup, DeviceGroupMember
-from .device_reset import LastResetDetails, ResetCount, ResetDetails, ResetHistory
+from .device_reset import LastResetDetails, ResetCount, ResetDetails, ResetHistory, LastResetDetailsFilter, ResetHistoryFilter
 from .inventory import Asset, Device, DeviceFilter, AssetFilter
 from .models import BCSOIAPIBaseModel
 from .place_in_network import PINDetails, PINDetailsFilter
