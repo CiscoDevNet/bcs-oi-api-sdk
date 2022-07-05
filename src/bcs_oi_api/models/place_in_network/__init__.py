@@ -1,1 +1,1 @@
-from .models import PINDetails
+from .models import PINDetails, PINDetailsFilter

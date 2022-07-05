@@ -1,1 +1,1 @@
-from .models import Collector
+from .models import Collector, CollectorFilter

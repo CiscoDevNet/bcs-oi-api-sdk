@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 
 from ..models import BCSOIAPIBaseModel
 
@@ -36,3 +37,8 @@ class UIRSummary(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "unidentifiedInventory/summary"
+
+
+class UIRDetailsFilter(BCSOIAPIBaseModel):
+    unidentified_device_name: Optional[list]
+    unidentified_device_status: Optional[list]

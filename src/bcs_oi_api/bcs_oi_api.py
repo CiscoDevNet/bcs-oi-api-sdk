@@ -4,6 +4,7 @@ from collections import defaultdict
 from contextlib import closing
 from typing import DefaultDict, Dict, Generator, List, Optional, Type
 
+import stringcase
 import jsonlines
 import jwt
 import requests
@@ -170,6 +171,7 @@ class BCSOIAPI:
         model: Type[BCSOIAPIBaseModel],
         url_params: Optional[dict] = None,
         headers: Optional[dict] = None,
+        filter: Optional[BCSOIAPIBaseModel] = None,
     ) -> Generator[BCSOIAPIBaseModel, None, None]:
         """
         Function that fetches the output of the BCS OI API for the given model
@@ -187,6 +189,13 @@ class BCSOIAPI:
 
         # Constructing the url
         url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
+        if filter:
+            url = url + "?"
+            for k, v in filter.items():
+                k = stringcase.camelcase(k)
+                for value in v:
+                    url = url + str(k) + "=" + str(value) + "&"
+            url = url.rstrip(url[-1])
 
         if model.response_items():
             for item in _get_all_items(url=url, headers=headers, url_params=url_params):

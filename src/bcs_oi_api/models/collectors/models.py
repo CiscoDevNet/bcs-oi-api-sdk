@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from typing import Optional
 from ..models import BCSOIAPIBaseModel
 
 __all__ = ["Collector"]
@@ -16,3 +16,8 @@ class Collector(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "collectors"
+
+
+class CollectorFilter(BCSOIAPIBaseModel):
+    appliance_id: Optional[list]
+    collector_status: Optional[list]
