@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 from ..models import BCSOIAPIBaseModel
 
@@ -72,17 +72,17 @@ class Asset(BCSOIAPIBaseModel):
         return "inventory/assets"
 
 
-class DeviceFilter(BCSOIAPIBaseModel):
-    device_id: Optional[list]
-    physical_asset_id: Optional[list]
-    product_id: Optional[list]
-    serial_number_status: Optional[list]
-
-
 class AssetFilter(BCSOIAPIBaseModel):
-    device_id: Optional[list]
-    product_id: Optional[list]
-    config_status: Optional[list]
-    device_status: Optional[list]
-    is_in_seed_file: Optional[list]
-    inventory_status: Optional[list]
+    device_id: Optional[List[int]]
+    physical_asset_id: Optional[List[int]]
+    product_id: Optional[List[str]]
+    serial_number_status: Optional[List[str]]
+
+
+class DeviceFilter(BCSOIAPIBaseModel):
+    device_id: Optional[List[int]]
+    product_id: Optional[List[str]]
+    config_status: Optional[List[str]]
+    device_status: Optional[List[str]]
+    is_in_seed_file: Optional[List[bool]]
+    inventory_status: Optional[List[str]]

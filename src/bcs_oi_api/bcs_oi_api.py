@@ -171,13 +171,14 @@ class BCSOIAPI:
         model: Type[BCSOIAPIBaseModel],
         url_params: Optional[dict] = None,
         headers: Optional[dict] = None,
-        filter: Optional[BCSOIAPIBaseModel] = None,
+        filter_: Optional[BCSOIAPIBaseModel] = None,
     ) -> Generator[BCSOIAPIBaseModel, None, None]:
         """
         Function that fetches the output of the BCS OI API for the given model
         :param model: BCSOIAPI model class for which the output has to be fetched
         :param url_params: dict containing the url parameters to be added to the request
         :param headers: dict containing the headers to be added to the request
+        :param filter_: Filter model class to query based on attributes
         :return: A generator which yields instances of objects of the model given as input for API endpoints
         """
         # check and renew JWT if needed
@@ -189,12 +190,13 @@ class BCSOIAPI:
 
         # Constructing the url
         url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
-        if filter:
+        if filter_:
             url = url + "?"
-            for k, v in filter.items():
+            for k, v in filter_.dict().items():
                 k = stringcase.camelcase(k)
-                for value in v:
-                    url = url + str(k) + "=" + str(value) + "&"
+                if v:
+                    for value in v:
+                        url = url + str(k) + "=" + str(value) + "&"
             url = url.rstrip(url[-1])
 
         if model.response_items():
