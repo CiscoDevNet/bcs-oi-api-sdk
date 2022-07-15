@@ -8,6 +8,7 @@ import jsonlines
 import jwt
 import requests
 import stringcase
+from pydantic import BaseModel, create_model
 
 from .models import (
     BCSOIAPIBaseModel,
@@ -172,13 +173,15 @@ class BCSOIAPI:
         url_params: Optional[dict] = None,
         headers: Optional[dict] = None,
         filter_: Optional[BCSOIAPIBaseModel] = None,
-    ) -> Generator[BCSOIAPIBaseModel, None, None]:
+        fields: Optional[str] = None,
+    ) -> Generator[BaseModel, None, None]:
         """
         Function that fetches the output of the BCS OI API for the given model
         :param model: BCSOIAPI model class for which the output has to be fetched
         :param url_params: dict containing the url parameters to be added to the request
         :param headers: dict containing the headers to be added to the request
         :param filter_: Filter model class to query based on attributes
+        :param fields: a comma separated string specifying which attributes should be returned in the response
         :return: A generator which yields instances of objects of the model given as input for API endpoints
         """
         # check and renew JWT if needed
@@ -199,9 +202,25 @@ class BCSOIAPI:
                         url = url + str(k) + "=" + str(value) + "&"
             url = url.rstrip(url[-1])
 
+        if fields:
+            if filter_:
+                # if filter is set already then fields will be appended to the end of the url string
+                url = f"{url}&"
+            else:
+                # If filter is not set earlier then fields is the first url param
+                url = f"{url}?"
+
+            url = f"{url}fields={fields}"
+
         if model.response_items():
-            for item in _get_all_items(url=url, headers=headers, url_params=url_params):
-                yield model(**item)
+            if not fields:
+                for item in _get_all_items(url=url, headers=headers, url_params=url_params):
+                    yield model(**item)
+            else:
+                for item in _get_all_items(url=url, headers=headers, url_params=url_params):
+                    item = {stringcase.snakecase(k): v for k, v in item.items()}
+                    fields_model = create_model(f"{model.__name__}Fields", **item)
+                    yield fields_model(**item)
         else:
             response = _get_response(url=url, headers=headers, url_params=url_params)
             yield model(**response.json())
