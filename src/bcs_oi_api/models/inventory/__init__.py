@@ -1,1 +1,1 @@
-from .models import Asset, Device, DeviceFilter, AssetFilter
+from .models import Asset, AssetFilter, Device, DeviceFilter

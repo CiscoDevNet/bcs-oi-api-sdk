@@ -1,10 +1,10 @@
 from .models import (
     ConfigBestPracticeDetail,
-    ConfigBestPracticeRule,
-    ConfigBestPracticeRuleReference,
-    ConfigBestPracticeSummary,
     ConfigBestPracticeDetailFilter,
+    ConfigBestPracticeRule,
     ConfigBestPracticeRuleFilter,
+    ConfigBestPracticeRuleReference,
     ConfigBestPracticeRuleReferenceFilter,
+    ConfigBestPracticeSummary,
     ConfigBestPracticeSummaryFilter,
 )

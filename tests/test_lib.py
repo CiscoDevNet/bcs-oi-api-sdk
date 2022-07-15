@@ -1,7 +1,9 @@
 import os
+
+import pytest
+
 from src.bcs_oi_api.bcs_oi_api import BCSOIAPI
 from src.bcs_oi_api.models import Device, DeviceFilter
-import pytest
 
 
 def test_lib_base_inventory_devices() -> None:

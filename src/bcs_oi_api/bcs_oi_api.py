@@ -3,11 +3,12 @@ import time
 from collections import defaultdict
 from contextlib import closing
 from typing import DefaultDict, Dict, Generator, List, Optional, Type
-from pydantic import create_model, BaseModel
-import stringcase
+
 import jsonlines
 import jwt
 import requests
+import stringcase
+from pydantic import BaseModel, create_model
 
 from .models import (
     BCSOIAPIBaseModel,

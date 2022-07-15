@@ -1,7 +1,7 @@
 from src.bcs_oi_api.models import Contract
 from tests.utils import check_model_creation
 
-contract_1: dict = {
+contract_1 = {
     "baseProductIdList": [{"baseProductId": "QSFP-100G-SM-SR="}],
     "contractSiteAddress": "225 W. TASMAN DRIVE",
     "contractSiteCity": "SAN JOSE",
@@ -29,7 +29,7 @@ contract_1: dict = {
 }
 
 
-contract_2: dict = {
+contract_2 = {
     "baseProductIdList": [{"baseProductId": "QSFP-100G-SM-SR="}],
     "contractSiteAddress": "225 W. TASMAN DRIVE",
     "contractSiteCity": "SAN JOSE",
