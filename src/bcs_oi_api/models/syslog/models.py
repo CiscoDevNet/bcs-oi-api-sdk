@@ -26,9 +26,12 @@ class Syslog(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "syslog/daily"
+<<<<<<< HEAD
 
 
 class SyslogFilter(BCSOIAPIBaseModel):
     message_type: Optional[list]
     reviewed_severity: Optional[list]
     syslog_event_severity: Optional[list]
+=======
+>>>>>>> master

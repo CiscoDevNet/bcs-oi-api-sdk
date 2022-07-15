@@ -56,6 +56,7 @@ class ResetHistory(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "deviceReset/resetHistory"
+<<<<<<< HEAD
 
 
 class LastResetDetailsFilter(BCSOIAPIBaseModel):
@@ -66,3 +67,5 @@ class LastResetDetailsFilter(BCSOIAPIBaseModel):
 class ResetHistoryFilter(BCSOIAPIBaseModel):
     device_id: Optional[list]
     product_id: Optional[list]
+=======
+>>>>>>> master

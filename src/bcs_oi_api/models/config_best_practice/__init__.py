@@ -3,8 +3,11 @@ from .models import (
     ConfigBestPracticeRule,
     ConfigBestPracticeRuleReference,
     ConfigBestPracticeSummary,
+<<<<<<< HEAD
     ConfigBestPracticeDetailFilter,
     ConfigBestPracticeRuleFilter,
     ConfigBestPracticeRuleReferenceFilter,
     ConfigBestPracticeSummaryFilter,
+=======
+>>>>>>> master
 )

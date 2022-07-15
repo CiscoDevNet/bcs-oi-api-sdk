@@ -30,9 +30,12 @@ class RiskMitigationSummary(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "riskMitigation/summary"
+<<<<<<< HEAD
 
 
 class RiskMitigationDetailsFilter(BCSOIAPIBaseModel):
     device_id: Optional[list]
     product_id: Optional[list]
     risk_category: Optional[list]
+=======
+>>>>>>> master

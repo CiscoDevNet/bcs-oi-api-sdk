@@ -1,5 +1,9 @@
 from datetime import datetime
+<<<<<<< HEAD
 from typing import Optional, List
+=======
+from typing import Optional
+>>>>>>> master
 
 from ..models import BCSOIAPIBaseModel
 
@@ -70,6 +74,7 @@ class Asset(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "inventory/assets"
+<<<<<<< HEAD
 
 
 class AssetFilter(BCSOIAPIBaseModel):
@@ -86,3 +91,5 @@ class DeviceFilter(BCSOIAPIBaseModel):
     device_status: Optional[List[str]]
     is_in_seed_file: Optional[List[bool]]
     inventory_status: Optional[List[str]]
+=======
+>>>>>>> master

@@ -9,6 +9,7 @@ from .models import (
     SoftwareAdvisoryAlert,
     SoftwareEndOfLife,
     SoftwareEndOfLifeBulletin,
+<<<<<<< HEAD
     FieldNoticeBulletinFilter,
     FieldNoticeFilter,
     HardwareEndOfLifeFilter,
@@ -18,4 +19,6 @@ from .models import (
     SoftwareAdvisoryAlertFilter,
     SoftwareEndOfLifeFilter,
     SoftwareEndOfLifeBulletinFilter,
+=======
+>>>>>>> master
 )

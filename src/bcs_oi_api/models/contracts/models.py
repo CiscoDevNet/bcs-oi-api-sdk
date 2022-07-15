@@ -45,8 +45,11 @@ class Contract(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "contract/serials"
+<<<<<<< HEAD
 
 
 class ContractFilter(BCSOIAPIBaseModel):
     is_covered: Optional[list]
     serial_number: Optional[list]
+=======
+>>>>>>> master

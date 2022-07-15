@@ -3,8 +3,11 @@ from .models import (
     SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
     SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSummary,
+<<<<<<< HEAD
     SoftwareTrackMemberFilter,
     SoftwareTrackSoftwareMaintenanceUpgradeComplianceFilter,
     SoftwareTrackSoftwareMaintenanceUpgradeRecommendationFilter,
     SoftwareTrackSummaryFilter,
+=======
+>>>>>>> master
 )

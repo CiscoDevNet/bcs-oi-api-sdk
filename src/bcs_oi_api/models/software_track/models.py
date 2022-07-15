@@ -91,6 +91,7 @@ class SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "softwareTrack/softwareMaintenanceUpgradeRecommendations"
+<<<<<<< HEAD
 
 
 class SoftwareTrackMemberFilter(BCSOIAPIBaseModel):
@@ -121,3 +122,5 @@ class SoftwareTrackSummaryFilter(BCSOIAPIBaseModel):
     software_track_id: Optional[list]
     software_track_rating: Optional[list]
     software_track_status: Optional[list]
+=======
+>>>>>>> master
