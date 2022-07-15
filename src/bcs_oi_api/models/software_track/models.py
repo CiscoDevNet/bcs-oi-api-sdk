@@ -91,3 +91,33 @@ class SoftwareTrackSoftwareMaintenanceUpgradeRecommendation(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "softwareTrack/softwareMaintenanceUpgradeRecommendations"
+
+
+class SoftwareTrackMemberFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    is_software_track_compliant: Optional[list]
+    is_software_track_flexible_compliant: Optional[list]
+    is_software_track_previous_compliant: Optional[list]
+    software_track_id: Optional[list]
+    software_track_package_installation_envelope_compliance: Optional[list]
+    software_track_software_maintenance_update_compliance: Optional[list]
+
+
+class SoftwareTrackSoftwareMaintenanceUpgradeComplianceFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    software_maintenance_update_package_installation_envelope_type: Optional[list]
+    software_role: Optional[list]
+    software_track_device_software_maintenance_update_PIE_action: Optional[list]
+    software_track_device_software_maintenance_update_PIE_compliance: Optional[list]
+
+
+class SoftwareTrackSoftwareMaintenanceUpgradeRecommendationFilter(BCSOIAPIBaseModel):
+    software_role: Optional[list]
+    software_track_id: Optional[list]
+    software_track_recommendation_history: Optional[list]
+
+
+class SoftwareTrackSummaryFilter(BCSOIAPIBaseModel):
+    software_track_id: Optional[list]
+    software_track_rating: Optional[list]
+    software_track_status: Optional[list]

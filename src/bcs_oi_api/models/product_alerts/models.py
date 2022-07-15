@@ -169,3 +169,57 @@ class SoftwareAdvisoryAlert(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "productAlerts/softwareAdvisoryAlerts"
+
+
+class FieldNoticeBulletinFilter(BCSOIAPIBaseModel):
+    field_notice_id: Optional[list]
+    field_notice_type: Optional[list]
+
+
+class FieldNoticeFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    field_notice_id: Optional[list]
+    match_confidence: Optional[list]
+    physical_asset_id: Optional[list]
+
+
+class HardwareEndOfLifeFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    physical_asset_id: Optional[list]
+    hardware_end_of_life_id: Optional[list]
+    product_id: Optional[list]
+
+
+class HardwareEndOfLifeBulletinFilter(BCSOIAPIBaseModel):
+    hardware_end_of_life_id: Optional[list]
+    product_id: Optional[list]
+    bulletin_number: Optional[list]
+
+
+class SecurityAdvisoryFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    match_confidence: Optional[list]
+    security_advisory_cold_id: Optional[list]
+
+
+class SecurityAdvisoryBulletinFilter(BCSOIAPIBaseModel):
+    security_advisory_id: Optional[list]
+    security_advisory_cold_id: Optional[list]
+    security_impact_rating: Optional[list]
+
+
+class SoftwareAdvisoryAlertFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    software_alert_type: Optional[list]
+    software_version: Optional[list]
+
+
+class SoftwareEndOfLifeFilter(BCSOIAPIBaseModel):
+    device_id: Optional[list]
+    software_end_of_life_id: Optional[list]
+    software_version: Optional[list]
+
+
+class SoftwareEndOfLifeBulletinFilter(BCSOIAPIBaseModel):
+    software_end_of_life_id: Optional[list]
+    bulletin_number: Optional[list]

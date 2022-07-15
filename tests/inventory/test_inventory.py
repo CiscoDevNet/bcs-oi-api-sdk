@@ -1,7 +1,7 @@
 from src.bcs_oi_api.models import Asset, Device
 from tests.utils import check_model_creation
 
-asset_1 = {
+asset_1: dict = {
     "chassisName": "10.201.23.147",
     "deviceId": 24948009,
     "deviceName": "10.201.23.147",
@@ -24,7 +24,7 @@ asset_1 = {
     "topAssemblyNumberRevision": "",
 }
 
-asset_2 = {
+asset_2: dict = {
     "chassisName": "10.201.23.147",
     "deviceId": 24948009,
     "deviceName": "10.201.23.147",
@@ -48,13 +48,13 @@ asset_2 = {
 }
 
 
-def test_asset_model():
+def test_asset_model() -> None:
     for asset_dict in [asset_1, asset_2]:
         asset = Asset(**asset_dict)
         check_model_creation(input_dict=asset_dict, model_instance=asset)
 
 
-device_1 = {
+device_1: dict = {
     "collectorName": "mycollector",
     "configRegister": "2102",
     "configStatus": "Completed",
@@ -90,7 +90,7 @@ device_1 = {
 }
 
 
-device_2 = {
+device_2: dict = {
     "collectorName": "mycollector",
     "configRegister": "2102",
     "configStatus": "Completed",
@@ -126,7 +126,7 @@ device_2 = {
 }
 
 
-def test_device_model():
+def test_device_model() -> None:
     for device_dict in [device_1, device_2]:
         device = Device(**device_dict)
         check_model_creation(input_dict=device_dict, model_instance=device)

@@ -1,1 +1,1 @@
-from .models import Syslog
+from .models import Syslog, SyslogFilter

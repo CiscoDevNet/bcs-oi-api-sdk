@@ -31,13 +31,13 @@ jobs:
         run: |
           flake8 .
           cd src
-          mypy .
+          mypy --ignore-missing-imports .
   python_code_formatting:
     name: "Python ${{ matrix.python-version }}"
     runs-on: "ubuntu-latest"
     strategy:
       matrix:
-        python-version: [ "3.7", "3.8", "3.9" ]
+        python-version: ["3.7", "3.8", "3.9"]
     steps:
       - uses: "actions/checkout@v2"
       - uses: "actions/setup-python@v2"
@@ -57,7 +57,7 @@ jobs:
     runs-on: "ubuntu-latest"
     strategy:
       matrix:
-        python-version: [ "3.7", "3.8", "3.9" ]
+        python-version: ["3.7", "3.8", "3.9"]
     steps:
       - uses: "actions/checkout@v2"
       - uses: "actions/setup-python@v2"
@@ -71,6 +71,9 @@ jobs:
           python -m pip install -e .
 
       - name: "Run tests ${{ matrix.python-version }}"
+        env: # Or as an environment variable
+          SDK_TEST_CLIENT_ID: ${{ secrets.SDK_TEST_CLIENT_ID }}
+          SDK_TEST_CLIENT_SECRET: ${{ secrets.SDK_TEST_CLIENT_SECRET }}
         run: |
           cd tests
           coverage run --source=. -m pytest -vv --capture=no

@@ -17,3 +17,8 @@ class Collector(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "collectors"
+
+
+class CollectorFilter(BCSOIAPIBaseModel):
+    appliance_id: Optional[list]
+    collector_status: Optional[list]

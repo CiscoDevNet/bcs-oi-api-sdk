@@ -2,3 +2,4 @@ jsonlines
 requests
 pyjwt
 pydantic
+stringcase

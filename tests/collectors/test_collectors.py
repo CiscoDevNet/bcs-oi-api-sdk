@@ -10,6 +10,12 @@ collector_1 = {
     "lastUploadTimestamp": "2022-02-03T21:10:58",
 }
 
+
+def test_collector_model() -> None:
+    collector = Collector(**collector_1)
+    assert collector.appliance_id == collector_1["applianceId"]
+
+
 collector_2 = {
     "applianceId": "CSP0009031587",
     "collectorName": "bci2",
@@ -20,7 +26,7 @@ collector_2 = {
 }
 
 
-def test_collector_model():
+def test_collector_models() -> None:
     for collector_dict in [collector_1, collector_2]:
         collector = Collector(**collector_dict)
         check_model_creation(input_dict=collector_dict, model_instance=collector)

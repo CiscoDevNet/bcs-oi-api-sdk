@@ -58,17 +58,17 @@ last_reset_details_2 = {
 }
 
 
-def test_reset_count_model():
+def test_reset_count_model() -> None:
     reset_count = ResetCount(**reset_count_1)
     check_model_creation(input_dict=reset_count_1, model_instance=reset_count)
 
 
-def test_reset_history_model():
+def test_reset_history_model() -> None:
     reset_history = ResetHistory(**reset_history_1)
     check_model_creation(input_dict=reset_history_1, model_instance=reset_history)
 
 
-def test_last_reset_details_model():
+def test_last_reset_details_model() -> None:
     for last_reset_details_dict in [last_reset_details_1, last_reset_details_2]:
         last_reset_details = LastResetDetails(**last_reset_details_dict)
         check_model_creation(input_dict=last_reset_details_dict, model_instance=last_reset_details)

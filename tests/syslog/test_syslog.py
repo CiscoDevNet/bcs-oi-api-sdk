@@ -17,6 +17,6 @@ syslog_1 = {
 }
 
 
-def test_syslog_model():
+def test_syslog_model() -> None:
     syslog = Syslog(**syslog_1)
     check_model_creation(input_dict=syslog_1, model_instance=syslog)

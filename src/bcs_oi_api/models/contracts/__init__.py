@@ -1,1 +1,1 @@
-from .models import BaseProduct, Contract, OrderableProductId
+from .models import BaseProduct, Contract, ContractFilter, OrderableProductId
