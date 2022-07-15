@@ -1,13 +1,10 @@
 from .models import (
     SoftwareTrackMember,
-    SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
-    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
-    SoftwareTrackSummary,
-<<<<<<< HEAD
     SoftwareTrackMemberFilter,
+    SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
     SoftwareTrackSoftwareMaintenanceUpgradeComplianceFilter,
+    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSoftwareMaintenanceUpgradeRecommendationFilter,
+    SoftwareTrackSummary,
     SoftwareTrackSummaryFilter,
-=======
->>>>>>> master
 )

@@ -1,13 +1,10 @@
 from .models import (
     ConfigBestPracticeDetail,
-    ConfigBestPracticeRule,
-    ConfigBestPracticeRuleReference,
-    ConfigBestPracticeSummary,
-<<<<<<< HEAD
     ConfigBestPracticeDetailFilter,
+    ConfigBestPracticeRule,
     ConfigBestPracticeRuleFilter,
+    ConfigBestPracticeRuleReference,
     ConfigBestPracticeRuleReferenceFilter,
+    ConfigBestPracticeSummary,
     ConfigBestPracticeSummaryFilter,
-=======
->>>>>>> master
 )

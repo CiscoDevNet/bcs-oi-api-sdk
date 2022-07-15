@@ -1,5 +1,6 @@
-from ..models import BCSOIAPIBaseModel
 from typing import Optional
+
+from ..models import BCSOIAPIBaseModel
 
 __all__ = ["PINDetails"]
 

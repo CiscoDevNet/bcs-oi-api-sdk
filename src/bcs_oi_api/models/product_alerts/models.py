@@ -169,7 +169,6 @@ class SoftwareAdvisoryAlert(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "productAlerts/softwareAdvisoryAlerts"
-<<<<<<< HEAD
 
 
 class FieldNoticeBulletinFilter(BCSOIAPIBaseModel):
@@ -224,5 +223,3 @@ class SoftwareEndOfLifeFilter(BCSOIAPIBaseModel):
 class SoftwareEndOfLifeBulletinFilter(BCSOIAPIBaseModel):
     software_end_of_life_id: Optional[list]
     bulletin_number: Optional[list]
-=======
->>>>>>> master

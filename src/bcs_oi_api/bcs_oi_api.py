@@ -4,10 +4,10 @@ from collections import defaultdict
 from contextlib import closing
 from typing import DefaultDict, Dict, Generator, List, Optional, Type
 
-import stringcase
 import jsonlines
 import jwt
 import requests
+import stringcase
 
 from .models import (
     BCSOIAPIBaseModel,

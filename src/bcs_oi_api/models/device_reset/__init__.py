@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-from .models import LastResetDetails, ResetCount, ResetDetails, ResetHistory, LastResetDetailsFilter, ResetHistoryFilter
-=======
-from .models import LastResetDetails, ResetCount, ResetDetails, ResetHistory
->>>>>>> master
+from .models import LastResetDetails, LastResetDetailsFilter, ResetCount, ResetDetails, ResetHistory, ResetHistoryFilter

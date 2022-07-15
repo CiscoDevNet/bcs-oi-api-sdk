@@ -65,7 +65,6 @@ class ConfigBestPracticeDetail(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "configBestPractices/details"
-<<<<<<< HEAD
 
 
 class ConfigBestPracticeDetailFilter(BCSOIAPIBaseModel):
@@ -85,5 +84,3 @@ class ConfigBestPracticeRuleReferenceFilter(BCSOIAPIBaseModel):
 class ConfigBestPracticeSummaryFilter(BCSOIAPIBaseModel):
     best_practice_risk: Optional[list]
     best_practice_rule_id: Optional[list]
-=======
->>>>>>> master

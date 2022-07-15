@@ -1,74 +1,58 @@
 from .bulk import DeviceBulk
-<<<<<<< HEAD
 from .collectors import Collector, CollectorFilter
-=======
-from .collectors import Collector
->>>>>>> master
 from .config_best_practice import (
     ConfigBestPracticeDetail,
-    ConfigBestPracticeRule,
-    ConfigBestPracticeRuleReference,
-    ConfigBestPracticeSummary,
-<<<<<<< HEAD
     ConfigBestPracticeDetailFilter,
+    ConfigBestPracticeRule,
     ConfigBestPracticeRuleFilter,
+    ConfigBestPracticeRuleReference,
     ConfigBestPracticeRuleReferenceFilter,
+    ConfigBestPracticeSummary,
     ConfigBestPracticeSummaryFilter,
 )
-from .contracts import BaseProduct, Contract, OrderableProductId, ContractFilter
+from .contracts import BaseProduct, Contract, ContractFilter, OrderableProductId
 from .device_groups import DeviceGroup, DeviceGroupMember
-from .device_reset import LastResetDetails, ResetCount, ResetDetails, ResetHistory, LastResetDetailsFilter, ResetHistoryFilter
-from .inventory import Asset, Device, DeviceFilter, AssetFilter
+from .device_reset import (
+    LastResetDetails,
+    LastResetDetailsFilter,
+    ResetCount,
+    ResetDetails,
+    ResetHistory,
+    ResetHistoryFilter,
+)
+from .inventory import Asset, AssetFilter, Device, DeviceFilter
 from .models import BCSOIAPIBaseModel
 from .place_in_network import PINDetails, PINDetailsFilter
-=======
-)
-from .contracts import BaseProduct, Contract, OrderableProductId
-from .device_groups import DeviceGroup, DeviceGroupMember
-from .device_reset import LastResetDetails, ResetCount, ResetDetails, ResetHistory
-from .inventory import Asset, Device
-from .models import BCSOIAPIBaseModel
->>>>>>> master
 from .product_alerts import (
     FieldNotice,
     FieldNoticeBulletin,
+    FieldNoticeFilter,
     HardwareEndOfLife,
     HardwareEndOfLifeBulletin,
+    HardwareEndOfLifeBulletinFilter,
+    HardwareEndOfLifeFilter,
     SecurityAdvisory,
     SecurityAdvisoryBulletin,
+    SecurityAdvisoryBulletinFilter,
+    SecurityAdvisoryFilter,
     SecurityAdvisoryOutcome,
     SoftwareAdvisoryAlert,
+    SoftwareAdvisoryAlertFilter,
     SoftwareEndOfLife,
     SoftwareEndOfLifeBulletin,
-<<<<<<< HEAD
-    FieldNoticeFilter,
-    HardwareEndOfLifeFilter,
-    HardwareEndOfLifeBulletinFilter,
-    SecurityAdvisoryFilter,
-    SecurityAdvisoryBulletinFilter,
-    SoftwareAdvisoryAlertFilter,
-    SoftwareEndOfLifeFilter,
     SoftwareEndOfLifeBulletinFilter,
+    SoftwareEndOfLifeFilter,
 )
-from .risk_mitigation import RiskMitigationDetails, RiskMitigationSummary, RiskMitigationDetailsFilter
-=======
-)
-from .risk_mitigation import RiskMitigationDetails, RiskMitigationSummary
->>>>>>> master
+from .risk_mitigation import RiskMitigationDetails, RiskMitigationDetailsFilter, RiskMitigationSummary
 from .software_track import (
     SoftwareTrackMember,
-    SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
-    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
-    SoftwareTrackSummary,
-<<<<<<< HEAD
     SoftwareTrackMemberFilter,
+    SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
     SoftwareTrackSoftwareMaintenanceUpgradeComplianceFilter,
+    SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSoftwareMaintenanceUpgradeRecommendationFilter,
+    SoftwareTrackSummary,
     SoftwareTrackSummaryFilter,
 )
 from .syslog import Syslog, SyslogFilter
-from .unidentified_inventory import UIRDetails, UIRSummary, UIRDetailsFilter
-=======
-)
-from .syslog import Syslog
->>>>>>> master
+from .unidentified_inventory import UIRDetails, UIRDetailsFilter, UIRSummary

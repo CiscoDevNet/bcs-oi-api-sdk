@@ -1,1 +1,1 @@
-from .models import UIRDetails, UIRSummary, UIRDetailsFilter
+from .models import UIRDetails, UIRDetailsFilter, UIRSummary
