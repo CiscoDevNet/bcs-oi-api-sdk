@@ -38,6 +38,10 @@ class UIRSummary(BCSOIAPIBaseModel):
     def url_path(cls) -> str:
         return "unidentifiedInventory/summary"
 
+    @classmethod
+    def response_items(cls) -> bool:
+        return False
+
 
 class UIRDetailsFilter(BCSOIAPIBaseModel):
     unidentified_device_name: Optional[list]
