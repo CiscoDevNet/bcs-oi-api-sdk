@@ -222,8 +222,14 @@ class BCSOIAPI:
                     fields_model = create_model(f"{model.__name__}Fields", **item)
                     yield fields_model(**item)
         else:
-            response = _get_response(url=url, headers=headers, url_params=url_params)
-            yield model(**response.json())
+            if not fields:
+                response = _get_response(url=url, headers=headers, url_params=url_params)
+                yield model(**response.json())
+            else:
+                response = _get_response(url=url, headers=headers, url_params=url_params)
+                item = {stringcase.snakecase(k): v for k, v in response.json().items()}
+                fields_model = create_model(f"{model.__name__}Fields", **item)
+                yield fields_model(**response.json())
 
     def get_bulk_alerts(self) -> DefaultDict[str, List[BCSOIAPIBaseModel]]:
         """
