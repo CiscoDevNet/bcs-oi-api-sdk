@@ -12,6 +12,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+## [1.1.0] - 2022-07-28
+
+### Added
+ - Filtering :  Some endpoints supports filtering, this is useful when you are interested in items that match a specific conditions. 
+ - Masking Feature : With this it is possible to specify the attributes of interest so only those are provided in the response.
+ - UIR & PIN End Points.
+
+
 ## [1.0.3] - 2022-05-25
 
 ### Fixed

@@ -43,6 +43,48 @@ for advisory in security_advisories:
         )
 
 ```
+## Filtering & Masking Example
+```python
+#Inventory Device(Filtering)
+
+filter_params = {
+
+"productFamily": ["Cisco ASR 9000 Series Aggregation Services Routers","Cisco Catalyst 3850 Series Switches","Cisco ASR 1000 Series Aggregation Services Routers"],
+
+}
+
+filter_parameter = UIRDetailsFilter.parse_obj(filter_params)
+
+inventory_devices = bcs_oi_api.get_output(model=Device, filter_=filter_parameter)
+
+for inventory_device in inventory_devices:
+
+    print(inventory_device)
+
+
+
+#UIR Details(Masking)
+
+filter_params = {
+
+"unidentifiedDeviceName": ["site2-asr-1"],
+
+"unidentifiedDeviceStatus": ["Recurring"],
+
+}
+
+fields = "unidentifiedDeviceName,unidentifiedDevicePlatform"
+
+filter_parameter = UIRDetailsFilter.parse_obj(filter_params)
+
+uir_details = bcs_oi_api.get_output(model=UIRDetails, filter_=filter_parameter, fields=fields)
+
+for uir_detail in uir_details:
+
+    print(uir_detail)
+```
+
+
 
 ## Installation
 
