@@ -82,6 +82,9 @@ uir_details = bcs_oi_api.get_output(model=UIRDetails, filter_=filter_parameter, 
 for uir_detail in uir_details:
 
     print(uir_detail)
+    #In the uir_detail response, only specified fields would be accessible.
+    print(f"Unidentified Device Name : {uir_detail.unidentified_device_name}")
+    print(f"Unidentified Device Platform : {uir_detail.unidentified_device_platform}")
 ```
 
 
