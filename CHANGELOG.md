@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
+## [1.1.1] - 2022-12-14
+
+### Fixed
+- Add missing stringcase library to installation setup.
+
+
+
 ## [1.1.0] - 2022-07-28
 
 ### Added
