@@ -56,3 +56,5 @@ from .software_track import (
 )
 from .syslog import Syslog, SyslogFilter
 from .unidentified_inventory import UIRDetails, UIRDetailsFilter, UIRSummary
+from .scalability_insights import SISummary, SIDetails, SIDetailsFilter, SISummaryFilter
+

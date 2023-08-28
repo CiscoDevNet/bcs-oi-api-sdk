@@ -31,6 +31,8 @@ from .models import (
     SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
     SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSummary,
+    SIDetails,
+    SISummary
 )
 
 logging.basicConfig()
@@ -192,7 +194,8 @@ class BCSOIAPI:
         headers["Authorization"] = f"Bearer {self.jwt}"
 
         # Constructing the url
-        url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
+        # url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
+        url = f"http://127.0.0.1:8080/{model.url_path()}"
         if filter_:
             url = url + "?"
             for k, v in filter_.dict().items():
@@ -215,9 +218,11 @@ class BCSOIAPI:
         if model.response_items():
             if not fields:
                 for item in _get_all_items(url=url, headers=headers, url_params=url_params):
+                    print(item)
                     yield model(**item)
             else:
                 for item in _get_all_items(url=url, headers=headers, url_params=url_params):
+                    print(item)
                     item = {stringcase.snakecase(k): v for k, v in item.items()}
                     fields_model = create_model(f"{model.__name__}Fields", **item)
                     yield fields_model(**item)
