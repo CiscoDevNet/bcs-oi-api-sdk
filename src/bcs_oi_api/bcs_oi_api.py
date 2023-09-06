@@ -32,7 +32,8 @@ from .models import (
     SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSummary,
     SIDetails,
-    SISummary
+    SISummary,
+    SIRuleDetails
 )
 
 logging.basicConfig()
@@ -60,6 +61,9 @@ BULK_TYPE_MODEL_MAPPING = {
     "track_smupie_recommendation": SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     "track_smupie_compliance": SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
     "track_summary": SoftwareTrackSummary,
+    "si_details": SIDetails,
+    "si_summary": SISummary,
+    "si_rule_details": SIRuleDetails
 }
 
 

@@ -2,7 +2,7 @@ from typing import List, Optional
 
 from ..models import BCSOIAPIBaseModel
 
-__all__ = ["SIDetails", "SISummary","SISummaryFilter","SIDetailsFilter"]
+__all__ = ["SIDetails", "SISummary","SIRuleDetails","SISummaryFilter","SIDetailsFilter","SIRuleDetailsFilter"]
 
 
 class SIDetails(BCSOIAPIBaseModel):
@@ -26,9 +26,25 @@ class SISummary(BCSOIAPIBaseModel):
         return "scalabilityInsights/device-summary"
 
 
+class SIRuleDetails(BCSOIAPIBaseModel):
+    rule_category: str
+    rule_id: str
+    rule_name: str
+    rule_sub_category: str
+    scalability_limit: int
+
+    @classmethod
+    def url_path(cls) -> str:
+        return "scalabilityInsights/rule-details"
+
+
 class SIDetailsFilter(BCSOIAPIBaseModel):
     threshold: Optional[List[int]]
 
 
 class SISummaryFilter(BCSOIAPIBaseModel):
     threshold : Optional[List[int]]
+
+
+class SIRuleDetailsFilter(BCSOIAPIBaseModel):
+    rule_id : Optional[List[str]]
