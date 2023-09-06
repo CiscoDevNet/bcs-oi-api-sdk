@@ -1,4 +1,4 @@
-from src.bcs_oi_api.models.scalability_insights import SIDetails, SISummary
+from src.bcs_oi_api.models.scalability_insights import SIDetails, SISummary, SIRuleDetails
 from tests.utils import check_model_creation
 
 details_1 = {
@@ -9,7 +9,7 @@ details_1 = {
 }
 
 
-def test_unidentified_inventory_details_model() -> None:
+def test_scalability_insights_details_model() -> None:
     details = SIDetails(**details_1)
     check_model_creation(input_dict=details_1, model_instance=details)
 
@@ -21,6 +21,19 @@ summary_1 = {
 }
 
 
-def test_unidentified_inventory_summary_model() -> None:
+def test_scalability_insights_summary_model() -> None:
     summary = SISummary(**summary_1)
     check_model_creation(input_dict=summary_1, model_instance=summary)
+
+rule_details_1 = {
+    "ruleCategory": "Layer 3",
+    "ruleId": "782cddb9f7_8c21b5c161_a5236bb145_b9077e4b6e_4b18ec6f4c_e6219b901b",
+    "ruleName": "v6 ISIS Routes",
+    "ruleSubCategory": "IS-IS",
+    "scalabilityLimit": 4096
+}
+
+
+def test_scalability_insights_rule_details_model() -> None:
+    rule_details = SIRuleDetails(**rule_details_1)
+    check_model_creation(input_dict=rule_details_1, model_instance=rule_details)
