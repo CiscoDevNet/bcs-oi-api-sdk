@@ -109,6 +109,7 @@ hardware_end_of_life_bulletin_1: dict = {
     "lastDayOfSupportDate": "2024-05-31",
     "lastShipDate": "2019-08-04",
     "productId": "N5K-C5548UP",
+    "replacementProductId": "N5K-C5548UB"
 }
 
 hardware_end_of_life_bulletin_2: dict = {
@@ -126,6 +127,7 @@ hardware_end_of_life_bulletin_2: dict = {
     "lastDayOfSupportDate": None,
     "lastShipDate": None,
     "productId": "N5K-C5548UP",
+    "replacementProductId": "N5K-C5548UB"
 }
 
 
@@ -147,6 +149,7 @@ hardware_end_of_life_1: dict = {
     "physicalAssetId": 342519674,
     "physicalAssetType": "Chassis",
     "productId": "N5K-C5548UP",
+    "replacementProductId": "N5K-C5548UB"
 }
 
 hardware_end_of_life_2: dict = {
@@ -160,6 +163,7 @@ hardware_end_of_life_2: dict = {
     "physicalAssetId": 342519674,
     "physicalAssetType": "Chassis",
     "productId": "N5K-C5548UP",
+    "replacementProductId": ""
 }
 
 

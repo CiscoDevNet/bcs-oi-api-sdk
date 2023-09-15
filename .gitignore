@@ -6,3 +6,5 @@
 dist
 venv/
 .vscode/
+__pycache__
+*.egg-info
