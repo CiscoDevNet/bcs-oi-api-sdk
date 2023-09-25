@@ -98,6 +98,6 @@ def test_uir_summary() -> None:
 
     assert uir_summary_dict != {}
 
-    fields: str = "unidentifiedDeviceCount"
+    fields = "unidentifiedDeviceCount"
     uir_summary = bcs_oi_api.get_output(model=UIRSummary, fields=fields)
     assert next(uir_summary).unidentified_device_count is not None
