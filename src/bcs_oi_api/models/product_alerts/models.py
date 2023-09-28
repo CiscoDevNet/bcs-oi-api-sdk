@@ -94,6 +94,7 @@ class HardwareEndOfLife(BCSOIAPIBaseModel):
     physical_asset_id: int
     physical_asset_type: str
     product_id: str
+    replacement_product_id: Optional[str]
 
     @classmethod
     def url_path(cls) -> str:
@@ -115,6 +116,7 @@ class HardwareEndOfLifeBulletin(BCSOIAPIBaseModel):
     last_day_of_support_date: Optional[date]
     last_ship_date: Optional[date]
     product_id: str
+    replacement_product_id: Optional[str]
 
     @classmethod
     def url_path(cls) -> str:
