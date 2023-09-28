@@ -12,12 +12,12 @@ config_best_practice_rule_1 = {
     "command to enable system traps.",
     "bestPracticeDescription": "If NX-OS device has system configured and running and SNMP Traps enabled then flag an "
     "exception if globally you don't find:  \n\nsnmp-server enable traps system",
-    "bestPracticeNuggetId": 550118,
+    "bestPracticeNuggetId": "IOS_XR_UNSUPP_TRANSEIVER",
     "bestPracticePrimaryTechnology": "*Network Management",
     "bestPracticeRecommendation": "Cisco recommends to enable SNMP traps,as they are helpful to log the event "
     "related to system process and can be used for troubleshooting when required.",
     "bestPracticeRisk": "Low",
-    "bestPracticeRuleId": 11148,
+    "bestPracticeRuleId": "11148",
     "bestPracticeSecondaryTechnology": "",
     "bestPracticeTitle": "System SNMP Traps Not Enabled",
     "createdTimestamp": "2016-06-04T04:01:00",
@@ -31,12 +31,12 @@ config_best_practice_rule_2 = {
     "command to enable system traps.",
     "bestPracticeDescription": "If NX-OS device has system configured and running and SNMP Traps enabled then flag an "
     "exception if globally you don't find:  \n\nsnmp-server enable traps system",
-    "bestPracticeNuggetId": 550118,
+    "bestPracticeNuggetId": "IOS_XR_UNSUPP_TRANSEIVER",
     "bestPracticePrimaryTechnology": "*Network Management",
     "bestPracticeRecommendation": "Cisco recommends to enable SNMP traps,as they are helpful to log the event "
     "related to system process and can be used for troubleshooting when required.",
     "bestPracticeRisk": "Low",
-    "bestPracticeRuleId": 11148,
+    "bestPracticeRuleId": "11148",
     "bestPracticeSecondaryTechnology": "",
     "bestPracticeTitle": "System SNMP Traps Not Enabled",
     "createdTimestamp": None,
@@ -46,24 +46,24 @@ config_best_practice_rule_2 = {
 
 
 config_best_practice_rule_reference_1 = {
-    "bestPracticeRuleId": 11148,
+    "bestPracticeRuleId": "11148",
     "bestPracticeUrl": "http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus7000/sw/system-management/"
     "command/reference/n7k_sm_cmd_ref/sm_cmd_s.html#pgfId-1035395",
     "bestPracticeUrlTitle": "Nexus 7000 System Command Reference",
 }
 
 config_best_practice_detail_1 = {
-    "bestPracticeNuggetId": 550118,
-    "bestPracticeRuleId": 11148,
+    "bestPracticeNuggetId": "IOS_XR_UNSUPP_TRANSEIVER",
+    "bestPracticeRuleId": "11148",
     "configSource": "STANDARD",
     "deviceId": 26431167,
 }
 
 config_best_practice_summary_1 = {
-    "bestPracticeNuggetId": 550118,
+    "bestPracticeNuggetId": "IOS_XR_UNSUPP_TRANSEIVER",
     "bestPracticePrimaryTechnology": "*Network Management",
     "bestPracticeRisk": "Low",
-    "bestPracticeRuleId": 11148,
+    "bestPracticeRuleId": "11148",
     "bestPracticeSecondaryTechnology": "",
     "bestPracticeTitle": "System SNMP Traps Not Enabled",
     "softwareType": "NX-OS",

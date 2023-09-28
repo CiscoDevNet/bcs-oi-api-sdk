@@ -1,6 +1,6 @@
 jsonlines
 requests
 pyjwt
-pydantic
+pydantic==1.10.12
 stringcase
 pytest
