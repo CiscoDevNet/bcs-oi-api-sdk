@@ -130,7 +130,6 @@ hardware_end_of_life_bulletin_2: dict = {
 
 
 def test_hardware_end_of_life_bulletin_model() -> None:
-
     for hw_eol_bulletin_dict in [hardware_end_of_life_bulletin_1, hardware_end_of_life_bulletin_2]:
         hardware_end_of_life_bulletin = HardwareEndOfLifeBulletin(**hw_eol_bulletin_dict)
         check_model_creation(input_dict=hw_eol_bulletin_dict, model_instance=hardware_end_of_life_bulletin)

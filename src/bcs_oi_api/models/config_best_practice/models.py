@@ -15,11 +15,11 @@ class ConfigBestPracticeRule(BCSOIAPIBaseModel):
     best_practice_caveat: str
     best_practice_corrective_action: str
     best_practice_description: str
-    best_practice_nugget_id: int
+    best_practice_nugget_id: str
     best_practice_primary_technology: str
     best_practice_recommendation: str
     best_practice_risk: str
-    best_practice_rule_id: int
+    best_practice_rule_id: str
     best_practice_secondary_technology: str
     best_practice_title: str
     created_timestamp: Optional[datetime]
@@ -32,7 +32,7 @@ class ConfigBestPracticeRule(BCSOIAPIBaseModel):
 
 
 class ConfigBestPracticeRuleReference(BCSOIAPIBaseModel):
-    best_practice_rule_id: int
+    best_practice_rule_id: str
     best_practice_url: str
     best_practice_url_title: str
 
@@ -42,10 +42,10 @@ class ConfigBestPracticeRuleReference(BCSOIAPIBaseModel):
 
 
 class ConfigBestPracticeSummary(BCSOIAPIBaseModel):
-    best_practice_nugget_id: int
+    best_practice_nugget_id: str
     best_practice_primary_technology: str
     best_practice_risk: str
-    best_practice_rule_id: int
+    best_practice_rule_id: str
     best_practice_secondary_technology: str
     best_practice_title: str
     software_type: str
@@ -57,8 +57,8 @@ class ConfigBestPracticeSummary(BCSOIAPIBaseModel):
 
 
 class ConfigBestPracticeDetail(BCSOIAPIBaseModel):
-    best_practice_nugget_id: int
-    best_practice_rule_id: int
+    best_practice_nugget_id: str
+    best_practice_rule_id: str
     config_source: str
     device_id: Optional[int]  # Optional for bulk
 
