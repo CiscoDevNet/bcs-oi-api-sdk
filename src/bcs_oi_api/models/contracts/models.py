@@ -25,6 +25,7 @@ class Contract(BCSOIAPIBaseModel):
     contract_site_address: str
     contract_site_city: str
     contract_site_country: str
+    contractSiteShipDate: str
     contract_site_customer_name: str
     contract_site_state_province: str
     covered_product_line_end_date: Optional[date]
