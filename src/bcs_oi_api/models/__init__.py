@@ -56,3 +56,20 @@ from .software_track import (
 )
 from .syslog import Syslog, SyslogFilter
 from .unidentified_inventory import UIRDetails, UIRDetailsFilter, UIRSummary
+from .scalability_insights import (
+    SISummary,
+    SIDetails,
+    SIRuleDetails,
+    SIDetailsFilter,
+    SISummaryFilter,
+    SIRuleDetailsFilter
+)
+from .policy_variation_analysis import (
+    pvapolicies, 
+    pvadetails, 
+    pvaVariations,
+    pvadetailsFilter,
+    pvaVariationsFilter,
+    pvapoliciesFilter
+)
+

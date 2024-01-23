@@ -31,6 +31,12 @@ from .models import (
     SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
     SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSummary,
+    SIDetails,
+    SISummary,
+    SIRuleDetails,
+    pvapolicies,
+    pvadetails,
+    pvaVariations
 )
 
 logging.basicConfig()
@@ -58,6 +64,13 @@ BULK_TYPE_MODEL_MAPPING = {
     "track_smupie_recommendation": SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     "track_smupie_compliance": SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
     "track_summary": SoftwareTrackSummary,
+    "si_details": SIDetails,
+    "si_summary": SISummary,
+    "si_rule_details": SIRuleDetails,
+    "pva_devices_policies": pvapolicies,
+    "pva_details": pvadetails,
+    "pva_policy_variations": pvaVariations
+
 }
 
 
@@ -192,7 +205,9 @@ class BCSOIAPI:
         headers["Authorization"] = f"Bearer {self.jwt}"
 
         # Constructing the url
-        url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
+        # url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
+        url = f"http://127.0.0.1:8080/{model.url_path()}"
+
         if filter_:
             url = url + "?"
             for k, v in filter_.dict().items():
