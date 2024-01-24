@@ -70,7 +70,6 @@ BULK_TYPE_MODEL_MAPPING = {
     "pva_devices_policies": pvapolicies,
     "pva_details": pvadetails,
     "pva_policy_variations": pvaVariations
-
 }
 
 
