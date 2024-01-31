@@ -65,11 +65,11 @@ from .scalability_insights import (
     SIRuleDetailsFilter
 )
 from .policy_variation_analysis import (
-    pvapolicies, 
-    pvadetails, 
-    pvaVariations,
-    pvadetailsFilter,
-    pvaVariationsFilter,
-    pvapoliciesFilter
+    PvaPolicies, 
+    PvaDetails, 
+    PvaVariations,
+    PvaDetailsFilter,
+    PvaVariationsFilter,
+    PvapoliciesFilter
 )
 

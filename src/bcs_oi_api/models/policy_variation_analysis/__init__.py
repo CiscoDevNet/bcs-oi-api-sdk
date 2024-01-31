@@ -1,1 +1,1 @@
-from .models import pvapolicies, pvadetails, pvaVariations,pvadetailsFilter,pvaVariationsFilter,pvapoliciesFilter
+from .models import PvaPolicies, PvaDetails, PvaVariations,PvaDetailsFilter,PvaVariationsFilter,PvapoliciesFilter

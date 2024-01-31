@@ -4,62 +4,64 @@ from ..models import BCSOIAPIBaseModel
 
 
 
-__all__ = ["pvapolicies", "pvadetails", "pvaVariations","pvadetailsFilter","pvaVariationsFilter","pvapoliciesFilter"]
+__all__ = ["PvaPolicies", "PvaDetails", "PvaVariations","PvaDetailsFilter","PvaVariationsFilter","PvapoliciesFilter"]
 
-
-class pvapolicies(BCSOIAPIBaseModel):
-    applied: dict
-    direction: dict
+class PvaAppliedInterface(BCSOIAPIBaseModel):
+    direction: str
     interface: str
-    deviceId: int
-    similarityHash: str
-    hostName: str
-    policyName: str
-    policyType: str
-    productFamily: str
-    subPolicyType: str
+
+class PvaPolicies(BCSOIAPIBaseModel):
+    applied: int
+    applied_interfaces: List[PvaAppliedInterface]
+    device_id: int
+    similarity_hash: str
+    host_name: str
+    policy_name: str
+    policy_type: str
+    product_family: str
+    sub_policy_type: str
 
     @classmethod
     def url_path(cls) -> str:
         return "policyVariationAnalysis/devicesPolicies"
 
 
-class pvadetails(BCSOIAPIBaseModel): #naming formats
+class PvaDetails(BCSOIAPIBaseModel): #naming formats
     applied: int
-    deviceCount: int
-    policyComplexity: str
-    policyName: str
-    policyType: str
-    productFamily: str
-    subPolicyType: str
-    policyVariations: int
+    device_count: int 
+    policy_complexity: str
+    policy_name: str
+    policy_type: str
+    product_family: str
+    sub_policy_type: str
+    policy_variations: int
 
     @classmethod
     def url_path(cls) -> str:
         return "policyVariationAnalysis/details"
 
 
-class pvaVariations(BCSOIAPIBaseModel):
-    isPrimaryPolicyVariation: bool
-    deviceCount: int
-    similarityHash: str
-    policyName: str
-    policyType: str
-    productFamily: str
-    subPolicyType: str
+class PvaVariations(BCSOIAPIBaseModel):
+    is_primary_policy_variation: bool
+    device_count: int
+    similarity_hash: str
+    policy_name: str
+    policy_type: str
+    product_family: str
+    subPolicy_type: str
 
     @classmethod
     def url_path(cls) -> str:
         return "policyVariationAnalysis/policyVariations"
 
 
-class pvadetailsFilter(BCSOIAPIBaseModel):
+class PvaDetailsFilter(BCSOIAPIBaseModel):
     policyName: Optional[List[int]]
 
 
-class pvaVariationsFilter(BCSOIAPIBaseModel):
+class PvaVariationsFilter(BCSOIAPIBaseModel):
     policyType: Optional[List[int]]
 
 
-class pvapoliciesFilter(BCSOIAPIBaseModel):
+class PvapoliciesFilter(BCSOIAPIBaseModel):
     policyType: Optional[List[str]]
