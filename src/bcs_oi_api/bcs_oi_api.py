@@ -67,10 +67,16 @@ BULK_TYPE_MODEL_MAPPING = {
     "si_details": SIDetails,
     "si_summary": SISummary,
     "si_rule_details": SIRuleDetails,
+<<<<<<< HEAD
     "pva_devices_policies": PvaPolicies,
     "pva_details": PvaDetails,
     "pva_policy_variations": PvaVariations
 
+=======
+    "pva_devices_policies": pvapolicies,
+    "pva_details": pvadetails,
+    "pva_policy_variations": pvaVariations
+>>>>>>> 9908aa1ddc09bdb96071b9a3d21fe234227dddc0
 }
 
 
