@@ -14,7 +14,6 @@ class SIDetails(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls) -> str:
-
         return "scalabilityInsights/details"
 
 
@@ -25,7 +24,6 @@ class SISummary(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls) -> str:
-
         return "scalabilityInsights/summary"
 
 
@@ -39,18 +37,13 @@ class SIRuleDetails(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls) -> str:
-
         return "scalabilityInsights/rules"
 
 
 
 class SIDetailsFilter(BCSOIAPIBaseModel):
     threshold: Optional[List[int]]
-
-
-class SISummaryFilter(BCSOIAPIBaseModel):
-    threshold: Optional[List[int]]
-
+    
 class SIRuleDetailsFilter(BCSOIAPIBaseModel):
     rule_id : Optional[List[str]]
 
