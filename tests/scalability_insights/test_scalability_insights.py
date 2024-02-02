@@ -6,6 +6,7 @@ details_1 = {
     "ruleId": "782cddb9f7_e751da28a4_a5236bb145_b9077e4b6e_4b18ec6f4c_8a6f5101c5",
     "scalabilityPercent": 0.02,
     "scalabilityValue": 2
+    
 }
 
 

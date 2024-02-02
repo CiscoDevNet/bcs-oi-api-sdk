@@ -116,12 +116,7 @@ class HardwareEndOfLifeBulletin(BCSOIAPIBaseModel):
     last_day_of_support_date: Optional[date]
     last_ship_date: Optional[date]
     product_id: str
-<<<<<<< HEAD
-    replacement_product_ids: str
-=======
     replacement_product_ids: Optional[list]
-
->>>>>>> 9908aa1ddc09bdb96071b9a3d21fe234227dddc0
 
     @classmethod
     def url_path(cls) -> str:

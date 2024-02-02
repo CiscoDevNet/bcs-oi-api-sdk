@@ -109,11 +109,7 @@ hardware_end_of_life_bulletin_1: dict = {
     "lastDayOfSupportDate": "2024-05-31",
     "lastShipDate": "2019-08-04",
     "productId": "N5K-C5548UP",
-<<<<<<< HEAD
-    "replacementProductIds": "WS-CDC-2500W",
-=======
     "replacementProductId": "N5K-C5548UB"
->>>>>>> 9908aa1ddc09bdb96071b9a3d21fe234227dddc0
 }
 
 hardware_end_of_life_bulletin_2: dict = {
@@ -131,11 +127,7 @@ hardware_end_of_life_bulletin_2: dict = {
     "lastDayOfSupportDate": None,
     "lastShipDate": None,
     "productId": "N5K-C5548UP",
-<<<<<<< HEAD
-    "replacementProductIds": "WS-CDC-2500W",
-=======
     "replacementProductId": "N5K-C5548UB"
->>>>>>> 9908aa1ddc09bdb96071b9a3d21fe234227dddc0
 }
 
 

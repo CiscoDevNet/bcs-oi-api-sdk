@@ -4,7 +4,7 @@ from ..models import BCSOIAPIBaseModel
 
 
 
-__all__ = ["PvaPolicies", "PvaDetails", "PvaVariations","PvaDetailsFilter","PvaVariationsFilter","PvapoliciesFilter"]
+__all__ = ["PvaPolicies", "PvaDetails", "PvaVariations","PvaDetailsFilter","PvaVariationsFilter","PvaPoliciesFilter"]
 
 class PvaAppliedInterface(BCSOIAPIBaseModel):
     direction: str
@@ -63,5 +63,5 @@ class PvaVariationsFilter(BCSOIAPIBaseModel):
     policyType: Optional[List[int]]
 
 
-class PvapoliciesFilter(BCSOIAPIBaseModel):
+class PvaPoliciesFilter(BCSOIAPIBaseModel):
     policyType: Optional[List[str]]

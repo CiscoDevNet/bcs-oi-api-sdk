@@ -70,7 +70,7 @@ from .policy_variation_analysis import (
     PvaVariations,
     PvaDetailsFilter,
     PvaVariationsFilter,
-    PvapoliciesFilter
+    PvaPoliciesFilter
 )
 
 
