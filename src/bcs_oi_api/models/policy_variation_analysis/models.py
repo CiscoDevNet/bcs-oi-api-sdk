@@ -48,7 +48,7 @@ class PvaVariations(BCSOIAPIBaseModel):
     policy_name: str
     policy_type: str
     product_family: str
-    subPolicy_type: str
+    subpolicy_type: str
 
     @classmethod
     def url_path(cls) -> str:
