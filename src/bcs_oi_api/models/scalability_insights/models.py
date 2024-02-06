@@ -2,7 +2,7 @@ from typing import List, Optional
 
 from ..models import BCSOIAPIBaseModel
 
-__all__ = ["SIDetails", "SISummary","SIRuleDetails","SISummaryFilter","SIDetailsFilter","SIRuleDetailsFilter"]
+__all__ = ["SIDetails", "SISummary","SIRuleDetails","SIDetailsFilter","SIRuleDetailsFilter"]
 
 
 
@@ -43,7 +43,7 @@ class SIRuleDetails(BCSOIAPIBaseModel):
 
 class SIDetailsFilter(BCSOIAPIBaseModel):
     threshold: Optional[List[int]]
-    
+
 class SIRuleDetailsFilter(BCSOIAPIBaseModel):
     rule_id : Optional[List[str]]
 
