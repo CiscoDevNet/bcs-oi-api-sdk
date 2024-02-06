@@ -37,7 +37,7 @@ def test_pva_details_model() -> None:
 
 
 policy_variations_1 = {
-    "isPrimaryPolicyVariation": "true",
+    "isPrimaryPolicyVariation": True,
     "deviceCount": 3,
     "similarityHash": "44e2d8127c6d7d0b10ecfe2733d6243d",
     "policyName": "SSM_RANGE_HTTS",
