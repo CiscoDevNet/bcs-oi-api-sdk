@@ -34,6 +34,7 @@ rule_details_1 = {
     "scalabilityLimit": 4096
 }
 
+
 def test_scalability_insights_rule_details_model() -> None:
     rule_details = SIRuleDetails(**rule_details_1)
     check_model_creation(input_dict=rule_details_1, model_instance=rule_details)

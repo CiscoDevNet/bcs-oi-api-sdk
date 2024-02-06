@@ -72,5 +72,3 @@ from .policy_variation_analysis import (
     PvaVariationsFilter,
     PvaPoliciesFilter
 )
-
-
