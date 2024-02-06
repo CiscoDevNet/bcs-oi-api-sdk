@@ -3,19 +3,14 @@ from tests.utils import check_model_creation
 
 policy_1 = {
     "applied": 1,
-    "appliedInterfaces": [
-        {
-          "direction": "in",
-          "interface": "snmp"
-        }
-    ],
+    "appliedInterfaces": [{"direction": "in", "interface": "snmp"}],
     "deviceId": "24932787",
     "similarityHash": "28b10525e413de37c2654508fb25d669",
     "hostName": "DC-Fanout-1-P2",
     "policyName": "nexus-10",
     "policyType": "acl",
     "productFamily": "Missing",
-    "subPolicyType": "STANDARD"
+    "subPolicyType": "STANDARD",
 }
 
 
@@ -32,7 +27,7 @@ details_1 = {
     "policyType": "class-map",
     "productFamily": "Cisco ASR 9000 Series Aggregation Services Routers",
     "subPolicyType": "SSID",
-    "policyVariations": 2
+    "policyVariations": 2,
 }
 
 
@@ -48,7 +43,7 @@ policy_variations_1 = {
     "policyName": "SSM_RANGE_HTTS",
     "policyType": "acl",
     "productFamily": "Cisco ASR 9000 Series Aggregation Services Routers",
-    "subPolicyType": "IOS-XR"
+    "subPolicyType": "IOS-XR",
 }
 
 
