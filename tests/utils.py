@@ -20,4 +20,7 @@ def check_model_creation(input_dict: dict, model_instance: BCSOIAPIBaseModel) ->
         elif isinstance(model_instance.__getattribute__(attribute_name), date):
             assert model_instance.__getattribute__(attribute_name) == datetime.strptime(v, "%Y-%m-%d").date()
         else:
+            print(
+                f"Attribute Name: {attribute_name}, Model Value: {model_instance.__getattribute__(attribute_name)}, Input Value: {v}"
+            )
             assert model_instance.__getattribute__(attribute_name) == v
