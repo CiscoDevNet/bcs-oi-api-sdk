@@ -28,7 +28,7 @@ class PvaPolicies(BCSOIAPIBaseModel):
 
 class PvaDetails(BCSOIAPIBaseModel):
     applied: int
-    device_count: int 
+    device_count: int
     policy_complexity: str
     policy_name: str
     policy_type: str

@@ -24,7 +24,7 @@ class SISummary(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "scalabilityInsights/summary"
-    
+
 
 class SIRuleDetails(BCSOIAPIBaseModel):
     rule_category: str
