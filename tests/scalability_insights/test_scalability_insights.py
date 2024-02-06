@@ -5,7 +5,7 @@ details_1 = {
     "deviceId": "28564936",
     "ruleId": "782cddb9f7_e751da28a4_a5236bb145_b9077e4b6e_4b18ec6f4c_8a6f5101c5",
     "scalabilityPercent": 0.02,
-    "scalabilityValue": 2
+    "scalabilityValue": 2,
 }
 
 
@@ -17,7 +17,7 @@ def test_scalability_insights_details_model() -> None:
 summary_1 = {
     "deviceCount": 12,
     "ruleId": "782cddb9f7_b1f7f66331_a5236bb145_b9077e4b6e_4b18ec6f4c_e19172620f",
-    "ruleName": "BGP Routes"
+    "ruleName": "BGP Routes",
 }
 
 
@@ -31,7 +31,7 @@ rule_details_1 = {
     "ruleId": "782cddb9f7_8c21b5c161_a5236bb145_b9077e4b6e_4b18ec6f4c_e6219b901b",
     "ruleName": "v6 ISIS Routes",
     "ruleSubCategory": "IS-IS",
-    "scalabilityLimit": 4096
+    "scalabilityLimit": 4096,
 }
 
 

@@ -62,13 +62,13 @@ from .scalability_insights import (
     SIRuleDetails,
     SIDetailsFilter,
     SISummaryFilter,
-    SIRuleDetailsFilter
+    SIRuleDetailsFilter,
 )
 from .policy_variation_analysis import (
-    PvaPolicies, 
-    PvaDetails, 
+    PvaPolicies,
+    PvaDetails,
     PvaVariations,
     PvaDetailsFilter,
     PvaVariationsFilter,
-    PvaPoliciesFilter
+    PvaPoliciesFilter,
 )

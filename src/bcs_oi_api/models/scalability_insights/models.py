@@ -43,4 +43,4 @@ class SIDetailsFilter(BCSOIAPIBaseModel):
 
 
 class SIRuleDetailsFilter(BCSOIAPIBaseModel):
-    rule_id : Optional[List[str]]
+    rule_id: Optional[List[str]]

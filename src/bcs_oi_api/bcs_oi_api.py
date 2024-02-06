@@ -36,7 +36,7 @@ from .models import (
     SIRuleDetails,
     PvaPolicies,
     PvaDetails,
-    PvaVariations
+    PvaVariations,
 )
 
 logging.basicConfig()
@@ -69,8 +69,7 @@ BULK_TYPE_MODEL_MAPPING = {
     "si_rule_details": SIRuleDetails,
     "pva_devices_policies": PvaPolicies,
     "pva_details": PvaDetails,
-    "pva_policy_variations": PvaVariations
-
+    "pva_policy_variations": PvaVariations,
 }
 
 
