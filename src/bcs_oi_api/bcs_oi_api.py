@@ -205,8 +205,8 @@ class BCSOIAPI:
         headers["Authorization"] = f"Bearer {self.jwt}"
 
         # Constructing the url
-        # url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
-        url = f"http://127.0.0.1:8080/{model.url_path()}"
+        url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
+        
 
         if filter_:
             url = url + "?"
