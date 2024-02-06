@@ -2,8 +2,7 @@ from typing import List, Optional
 
 from ..models import BCSOIAPIBaseModel
 
-__all__ = ["SIDetails", "SISummary","SIRuleDetails","SIDetailsFilter","SIRuleDetailsFilter"]
-
+__all__ = ["SIDetails", "SISummary", "SIRuleDetails", "SIDetailsFilter", "SIRuleDetailsFilter"]
 
 
 class SIDetails(BCSOIAPIBaseModel):
@@ -25,8 +24,7 @@ class SISummary(BCSOIAPIBaseModel):
     @classmethod
     def url_path(cls) -> str:
         return "scalabilityInsights/summary"
-
-
+    
 
 class SIRuleDetails(BCSOIAPIBaseModel):
     rule_category: str
@@ -40,10 +38,9 @@ class SIRuleDetails(BCSOIAPIBaseModel):
         return "scalabilityInsights/rules"
 
 
-
 class SIDetailsFilter(BCSOIAPIBaseModel):
     threshold: Optional[List[int]]
 
+
 class SIRuleDetailsFilter(BCSOIAPIBaseModel):
     rule_id : Optional[List[str]]
-
