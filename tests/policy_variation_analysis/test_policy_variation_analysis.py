@@ -1,4 +1,4 @@
-from src.bcs_oi_api.models.policy_variation_analysis import PvaPolicies, PvaDetails, PvaVariations
+from src.bcs_oi_api.models.policy_variation_analysis import PvaDetails, PvaPolicies, PvaVariations
 from tests.utils import check_model_creation
 
 policy_1 = {

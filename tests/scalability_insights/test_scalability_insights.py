@@ -1,4 +1,4 @@
-from src.bcs_oi_api.models.scalability_insights import SIDetails, SISummary, SIRuleDetails
+from src.bcs_oi_api.models.scalability_insights import SIDetails, SIRuleDetails, SISummary
 from tests.utils import check_model_creation
 
 details_1 = {

@@ -1,1 +1,1 @@
-from .models import SISummary, SIDetails, SIRuleDetails, SIDetailsFilter, SIRuleDetailsFilter
+from .models import SIDetails, SIDetailsFilter, SIRuleDetails, SIRuleDetailsFilter, SISummary
