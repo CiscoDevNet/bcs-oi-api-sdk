@@ -2,13 +2,13 @@ from typing import List, Optional
 
 from ..models import BCSOIAPIBaseModel
 
+__all__ = ["PvaPolicies", "PvaDetails", "PvaVariations", "PvaDetailsFilter", "PvaVariationsFilter", "PvaPoliciesFilter"]
 
-
-__all__ = ["PvaPolicies", "PvaDetails", "PvaVariations","PvaDetailsFilter","PvaVariationsFilter","PvaPoliciesFilter"]
 
 class PvaAppliedInterface(BCSOIAPIBaseModel):
     direction: str
     interface: str
+
 
 class PvaPolicies(BCSOIAPIBaseModel):
     applied: int
@@ -26,7 +26,7 @@ class PvaPolicies(BCSOIAPIBaseModel):
         return "policyVariationAnalysis/devicesPolicies"
 
 
-class PvaDetails(BCSOIAPIBaseModel): #naming formats
+class PvaDetails(BCSOIAPIBaseModel):
     applied: int
     device_count: int 
     policy_complexity: str

@@ -6,7 +6,6 @@ details_1 = {
     "ruleId": "782cddb9f7_e751da28a4_a5236bb145_b9077e4b6e_4b18ec6f4c_8a6f5101c5",
     "scalabilityPercent": 0.02,
     "scalabilityValue": 2
-    
 }
 
 
@@ -26,6 +25,7 @@ def test_scalability_insights_summary_model() -> None:
     summary = SISummary(**summary_1)
     check_model_creation(input_dict=summary_1, model_instance=summary)
 
+
 rule_details_1 = {
     "ruleCategory": "Layer 3",
     "ruleId": "782cddb9f7_8c21b5c161_a5236bb145_b9077e4b6e_4b18ec6f4c_e6219b901b",
@@ -33,7 +33,6 @@ rule_details_1 = {
     "ruleSubCategory": "IS-IS",
     "scalabilityLimit": 4096
 }
-
 
 def test_scalability_insights_rule_details_model() -> None:
     rule_details = SIRuleDetails(**rule_details_1)

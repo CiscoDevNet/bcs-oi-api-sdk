@@ -2,12 +2,12 @@ from src.bcs_oi_api.models.policy_variation_analysis import PvaPolicies, PvaDeta
 from tests.utils import check_model_creation
 
 policy_1 = {
-    "applied":1,
-    "appliedInterfaces":[
+    "applied": 1,
+    "appliedInterfaces": [
         {
           "direction": "in",
           "interface": "snmp"
-        } 
+        }
     ],
     "deviceId": "24932787",
     "similarityHash": "28b10525e413de37c2654508fb25d669",
