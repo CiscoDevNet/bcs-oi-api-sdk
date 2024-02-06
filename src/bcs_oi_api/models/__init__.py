@@ -61,7 +61,6 @@ from .scalability_insights import (
     SIDetails,
     SIRuleDetails,
     SIDetailsFilter,
-    SISummaryFilter,
     SIRuleDetailsFilter,
 )
 from .policy_variation_analysis import (
