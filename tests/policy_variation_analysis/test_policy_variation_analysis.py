@@ -4,7 +4,7 @@ from tests.utils import check_model_creation
 policy_1 = {
     "applied": 1,
     "appliedInterfaces": [{"direction": "in", "interface": "snmp"}],
-    "deviceId": "24932787",
+    "deviceId": 24932787,
     "similarityHash": "28b10525e413de37c2654508fb25d669",
     "hostName": "DC-Fanout-1-P2",
     "policyName": "nexus-10",
