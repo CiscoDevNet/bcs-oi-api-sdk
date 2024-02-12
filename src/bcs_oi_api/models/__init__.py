@@ -23,6 +23,14 @@ from .device_reset import (
 from .inventory import Asset, AssetFilter, Device, DeviceFilter
 from .models import BCSOIAPIBaseModel
 from .place_in_network import PINDetails, PINDetailsFilter
+from .policy_variation_analysis import (
+    PvaDetails,
+    PvaDetailsFilter,
+    PvaPolicies,
+    PvaPoliciesFilter,
+    PvaVariations,
+    PvaVariationsFilter,
+)
 from .product_alerts import (
     FieldNotice,
     FieldNoticeBulletin,
@@ -44,6 +52,7 @@ from .product_alerts import (
     SoftwareEndOfLifeFilter,
 )
 from .risk_mitigation import RiskMitigationDetails, RiskMitigationDetailsFilter, RiskMitigationSummary
+from .scalability_insights import SIDetails, SIDetailsFilter, SIRuleDetails, SIRuleDetailsFilter, SISummary
 from .software_track import (
     SoftwareTrackMember,
     SoftwareTrackMemberFilter,
@@ -56,12 +65,3 @@ from .software_track import (
 )
 from .syslog import Syslog, SyslogFilter
 from .unidentified_inventory import UIRDetails, UIRDetailsFilter, UIRSummary
-from .scalability_insights import (
-    SISummary,
-    SIDetails,
-    SIRuleDetails,
-    SIDetailsFilter,
-    SISummaryFilter,
-    SIRuleDetailsFilter
-)
-

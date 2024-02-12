@@ -21,19 +21,22 @@ from .models import (
     FieldNoticeBulletin,
     HardwareEndOfLifeBulletin,
     LastResetDetails,
+    PvaDetails,
+    PvaPolicies,
+    PvaVariations,
     ResetCount,
     ResetHistory,
     RiskMitigationDetails,
     RiskMitigationSummary,
     SecurityAdvisoryBulletin,
+    SIDetails,
+    SIRuleDetails,
+    SISummary,
     SoftwareEndOfLifeBulletin,
     SoftwareTrackMember,
     SoftwareTrackSoftwareMaintenanceUpgradeCompliance,
     SoftwareTrackSoftwareMaintenanceUpgradeRecommendation,
     SoftwareTrackSummary,
-    SIDetails,
-    SISummary,
-    SIRuleDetails
 )
 
 logging.basicConfig()
@@ -63,7 +66,10 @@ BULK_TYPE_MODEL_MAPPING = {
     "track_summary": SoftwareTrackSummary,
     "si_details": SIDetails,
     "si_summary": SISummary,
-    "si_rule_details": SIRuleDetails
+    "si_rule_details": SIRuleDetails,
+    "pva_devices_policies": PvaPolicies,
+    "pva_details": PvaDetails,
+    "pva_policy_variations": PvaVariations,
 }
 
 
