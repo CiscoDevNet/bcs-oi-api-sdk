@@ -4,6 +4,5 @@ from .models import (
     ResetCount,
     ResetDetails,
     ResetHistory,
-    ResetHistoryFilter,
-    ResetCountFilter,
+    ResetHistoryFilter
 )
