@@ -1,6 +1,6 @@
 from datetime import date, datetime
 from enum import Enum
-from typing import Optional
+from typing import List, Optional
 
 from ..models import BCSOIAPIBaseModel
 
@@ -115,7 +115,7 @@ class HardwareEndOfLifeBulletin(BCSOIAPIBaseModel):
     last_day_of_support_date: Optional[date]
     last_ship_date: Optional[date]
     product_id: str
-    replacement_Product_Ids: Optional[list[str]]
+    replacement_Product_Ids: Optional[List[str]]
 
     @classmethod
     def url_path(cls) -> str:
