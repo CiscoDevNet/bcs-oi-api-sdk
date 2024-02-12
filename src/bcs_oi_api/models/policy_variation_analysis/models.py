@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional,Any, Dict
 
 from ..models import BCSOIAPIBaseModel
 
@@ -48,7 +48,7 @@ class PvaVariations(BCSOIAPIBaseModel):
     policy_name: str
     policy_type: str
     product_family: str
-    subpolicy_type: str
+    sub_policy_type: str
 
     @classmethod
     def url_path(cls) -> str:
@@ -56,12 +56,17 @@ class PvaVariations(BCSOIAPIBaseModel):
 
 
 class PvaDetailsFilter(BCSOIAPIBaseModel):
-    policyName: Optional[List[int]]
+    applied: Optional[int]
+    policy_type: Optional[List[str]]
+    policy_name: Optional[List[str]]
+    policy_complexity: Optional[List[str]]
 
 
 class PvaVariationsFilter(BCSOIAPIBaseModel):
-    policyType: Optional[List[int]]
+    policy_type: Optional[List[str]]
+    policy_name: Optional[List[str]]
 
 
 class PvaPoliciesFilter(BCSOIAPIBaseModel):
-    policyType: Optional[List[str]]
+    policy_type: Optional[List[str]]
+    policy_name: Optional[List[str]]
