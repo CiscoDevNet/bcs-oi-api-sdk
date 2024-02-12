@@ -7,8 +7,6 @@ details_1 = {
     "scalabilityPercent": 0.02,
     "scalabilityValue": 2,
 }
-
-
 def test_scalability_insights_details_model() -> None:
     details = SIDetails(**details_1)
     check_model_creation(input_dict=details_1, model_instance=details)

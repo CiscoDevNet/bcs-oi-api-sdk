@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Any, Dict
 
 from ..models import BCSOIAPIBaseModel
 
@@ -35,11 +35,12 @@ class SIRuleDetails(BCSOIAPIBaseModel):
 
     @classmethod
     def url_path(cls) -> str:
-        return "scalabilityInsights/rules"
+        return "scalabilityInsights/rulesDetails"
 
 
 class SIDetailsFilter(BCSOIAPIBaseModel):
-    threshold: Optional[List[int]]
+    threshold: Optional[List[float]]
+
 
 
 class SIRuleDetailsFilter(BCSOIAPIBaseModel):

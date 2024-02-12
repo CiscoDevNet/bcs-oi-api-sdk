@@ -115,7 +115,7 @@ class HardwareEndOfLifeBulletin(BCSOIAPIBaseModel):
     last_day_of_support_date: Optional[date]
     last_ship_date: Optional[date]
     product_id: str
-    replacement_product_id: str
+    replacement_Product_Ids: list[str]
 
     @classmethod
     def url_path(cls) -> str:
@@ -195,7 +195,6 @@ class HardwareEndOfLifeBulletinFilter(BCSOIAPIBaseModel):
     hardware_end_of_life_id: Optional[list]
     product_id: Optional[list]
     bulletin_number: Optional[list]
-    replacement_product_id: Optional[list]
 
 
 class SecurityAdvisoryFilter(BCSOIAPIBaseModel):
