@@ -1,4 +1,4 @@
-from typing import List, Optional,Any, Dict
+from typing import List, Optional, Any, Dict
 
 from ..models import BCSOIAPIBaseModel
 

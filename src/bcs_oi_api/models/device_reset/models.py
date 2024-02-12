@@ -67,5 +67,6 @@ class ResetHistoryFilter(BCSOIAPIBaseModel):
     device_id: Optional[list]
     product_id: Optional[list]
 
+
 class ResetCountFilter(BCSOIAPIBaseModel):
     days: Optional[List[int]]
