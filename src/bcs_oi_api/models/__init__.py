@@ -19,7 +19,6 @@ from .device_reset import (
     ResetDetails,
     ResetHistory,
     ResetHistoryFilter,
-    ResetCountFilter,
 )
 from .inventory import Asset, AssetFilter, Device, DeviceFilter
 from .models import BCSOIAPIBaseModel

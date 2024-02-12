@@ -205,7 +205,7 @@ class BCSOIAPI:
 
         # Constructing the url
         url = f"https://{self.server}/{self.region}/bcs/{self.api_version}/{model.url_path()}"
-
+        
         if filter_:
             url = url + "?"
             for k, v in filter_.dict().items():
