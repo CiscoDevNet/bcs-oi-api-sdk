@@ -42,6 +42,5 @@ class SIDetailsFilter(BCSOIAPIBaseModel):
     threshold: Optional[List[float]]
 
 
-
 class SIRuleDetailsFilter(BCSOIAPIBaseModel):
     rule_id: Optional[List[str]]
