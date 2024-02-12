@@ -43,7 +43,7 @@ policy_variations_1 = {
     "policyName": "SSM_RANGE_HTTS",
     "policyType": "acl",
     "productFamily": "Cisco ASR 9000 Series Aggregation Services Routers",
-    "subpolicyType": "IOS-XR",
+    "subPolicyType": "IOS-XR",
 }
 
 
